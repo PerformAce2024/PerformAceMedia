@@ -31,7 +31,7 @@ jobs:
         
   deploy:
     needs: build
-    runs-on: self-hosted-website
+    runs-on: self-hosted
     steps:
       - name: Extract short commit SHA
         id: vars
