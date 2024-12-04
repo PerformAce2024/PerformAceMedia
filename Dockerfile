@@ -11,7 +11,6 @@ COPY . .
 RUN npm install
 
 # Copy the rest of the application files
-COPY . .
 
 # Expose port 80 for incoming requests
 EXPOSE 80
