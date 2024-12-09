@@ -4,7 +4,7 @@ import image1 from "../assets/Frame1.png";
 import image2 from "../assets/frame2.png";
 import image3 from "../assets/frame3.png";
 import image4 from "../assets/frame4.png";
-import image5 from "../assets/rame5.png";
+import image5 from "../assets/frame5.png";
 import image6 from "../assets/frame6.png";
 
 const Third = () => {
