@@ -1,20 +1,16 @@
-# Use a lightweight Node.js image as the base
 FROM node:18-alpine
 
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy only package.json and package-lock.json
-COPY frontend/ .
+# Copy the fronend directory
+COPY fronend/ ./fronend/
 
-# Install project dependencies
+# Change to fronend directory, install dependencies
+WORKDIR /app/fronend
 RUN npm install
 
-# Copy the rest of the application files
-COPY . .
-
-# Expose port 80 for incoming requests
 EXPOSE 5173
 
-# Start the application
-CMD ["npm", "run", "dev", "-p", "5173", "-a", "0.0.0.0"]
+# Start the application from the fronend directory
+CMD ["npm", "run", "dev", "--", "--port", "5173", "--host", "0.0.0.0"]
