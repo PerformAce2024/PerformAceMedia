@@ -6,10 +6,6 @@ WORKDIR /app
 # Copy everything
 COPY . .
 
-# Debug: List contents to see what we have
-RUN ls -la
-RUN ls -la fronend/
-
 # Change to fronend directory, install dependencies
 WORKDIR /app/fronend/fronend
 RUN npm install
