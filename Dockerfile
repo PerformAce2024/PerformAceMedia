@@ -3,8 +3,12 @@ FROM node:18-alpine
 # Set the working directory in the container
 WORKDIR /app
 
-# First copy everything
+# Copy everything
 COPY . .
+
+# Debug: List contents to see what we have
+RUN ls -la
+RUN ls -la fronend/
 
 # Change to fronend directory, install dependencies
 WORKDIR /app/fronend
