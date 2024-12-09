@@ -11,7 +11,7 @@ RUN ls -la
 RUN ls -la fronend/
 
 # Change to fronend directory, install dependencies
-WORKDIR /app/fronend
+WORKDIR /app/fronend/fronend
 RUN npm install
 
 EXPOSE 5173
