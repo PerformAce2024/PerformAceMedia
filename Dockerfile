@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 80
 
 # Start the application
-CMD ["npm", "run", "dev", "-p", "80", "-a", "0.0.0.0"]
+CMD ["npm", "run", "dev", "-p", "5173", "-a", "0.0.0.0"]
