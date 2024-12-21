@@ -71,35 +71,32 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="lg:hidden">
-          <Link
-            to="/about-us"
-            className="text-gray-700 hover:text-gray-900 text-lg"
-          >
-            About Us
-          </Link>
-          <Link
-            to="/services"
-            className="text-gray-700 hover:text-gray-900 text-lg"
-          >
-            Services
-          </Link>
-          <Link
-            to="/product"
-            className="text-gray-700 hover:text-gray-900 text-lg"
-          >
-            Product
-          </Link>
-          <Link
-            to="/contact-us"
-            className="text-gray-700 hover:text-gray-900 text-lg"
-          >
-            Contact Us
-          </Link>
-          <button className="w-full text-left px-4 py-3 text-red-500 hover:text-red-600 text-lg">
-            Request a Quote
-          </button>
-        </div>
+        <div className="px-4 pt-2 pb-3 space-y-2 bg-white">
+        <Link
+          to="/about-us"
+          className="block px-4 py-3 text-gray-700 hover:text-gray-900 text-lg"
+        >
+          About Us
+        </Link>
+        <Link
+          to="/services"
+          className="block px-4 py-3 text-gray-700 hover:text-gray-900 text-lg"
+        >
+          Services
+        </Link>
+        <Link
+          to="/product"
+          className="block px-4 py-3 text-gray-700 hover:text-gray-900 text-lg"
+        >
+          Portfolio
+        </Link>
+        <Link
+          to="/contact-us"
+          className="block px-4 py-3 text-gray-700 hover:text-gray-900 text-lg"
+        >
+          Contact Us
+        </Link>
+      </div>
       )}
     </nav>
   );
