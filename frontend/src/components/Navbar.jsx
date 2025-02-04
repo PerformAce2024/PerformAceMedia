@@ -10,7 +10,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-[#F8FBFF] shadow-sm z-50 h-[100px]">
+    <nav className="fixed top-0 left-0 right-0 bg-[#F8FBFF] shadow-sm z-[100] h-[100px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-[100px]">
           {/* Logo */}
@@ -28,6 +28,12 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center space-x-8">
+            <Link
+              to="/creatives"
+              className="text-gray-700 hover:text-gray-900 text-lg"
+            >
+              Creatives
+            </Link>
             <Link
               to="/about-us"
               className="text-gray-700 hover:text-gray-900 text-lg"
@@ -72,31 +78,31 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="px-4 pt-2 pb-3 space-y-2 bg-white">
-        <Link
-          to="/about-us"
-          className="block px-4 py-3 text-gray-700 hover:text-gray-900 text-lg"
-        >
-          About Us
-        </Link>
-        <Link
-          to="/services"
-          className="block px-4 py-3 text-gray-700 hover:text-gray-900 text-lg"
-        >
-          Services
-        </Link>
-        <Link
-          to="/product"
-          className="block px-4 py-3 text-gray-700 hover:text-gray-900 text-lg"
-        >
-          Portfolio
-        </Link>
-        <Link
-          to="/contact-us"
-          className="block px-4 py-3 text-gray-700 hover:text-gray-900 text-lg"
-        >
-          Contact Us
-        </Link>
-      </div>
+          <Link
+            to="/about-us"
+            className="block px-4 py-3 text-gray-700 hover:text-gray-900 text-lg"
+          >
+            About Us
+          </Link>
+          <Link
+            to="/services"
+            className="block px-4 py-3 text-gray-700 hover:text-gray-900 text-lg"
+          >
+            Services
+          </Link>
+          <Link
+            to="/product"
+            className="block px-4 py-3 text-gray-700 hover:text-gray-900 text-lg"
+          >
+            Portfolio
+          </Link>
+          <Link
+            to="/contact-us"
+            className="block px-4 py-3 text-gray-700 hover:text-gray-900 text-lg"
+          >
+            Contact Us
+          </Link>
+        </div>
       )}
     </nav>
   );
