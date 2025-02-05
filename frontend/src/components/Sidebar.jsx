@@ -61,6 +61,26 @@ const Sidebar = ({ isOpen, onClose, onSelect }) => {
             >
               Tropicana
             </a>
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                onSelect("hyundai");
+              }}
+              className="block text-black hover:font-semibold no-underline py-2"
+            >
+              Hyundai
+            </a>
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                onSelect("royal-enfield");
+              }}
+              className="block text-black hover:font-semibold no-underline py-2"
+            >
+              Royal Enfield
+            </a>
           </SidebarItem>
 
           <SidebarItem title="VisionTV">

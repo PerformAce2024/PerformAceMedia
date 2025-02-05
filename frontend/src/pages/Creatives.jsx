@@ -2,7 +2,9 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
 import { useState } from "react";
-
+import PhoneMockup from "../components/Phonemockup";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 // Create components for different content
 const VideoPlayer = ({ videoUrl }) => (
   <div className="flex-1 flex justify-center items-center p-4">
@@ -15,39 +17,253 @@ const VideoPlayer = ({ videoUrl }) => (
 
 const Fashion = () => (
   <div className="flex-1 flex justify-center items-center p-4">
-    <h2>Fashion Content</h2>
+    <PhoneMockup>
+      <Carousel showThumbs={false} infiniteLoop autoPlay>
+        <div>
+          <img
+            src="/fashion-1.jpg"
+            alt="Fashion 1"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div>
+          <img
+            src="/fashion-2.jpg"
+            alt="Fashion 2"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div>
+          <img
+            src="/fashion-3.jpg"
+            alt="Fashion 3"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </Carousel>
+    </PhoneMockup>
   </div>
 );
 
 const AmazonMini = () => (
   <div className="flex-1 flex justify-center items-center p-4">
-    <h2>Amazon Mini Content</h2>
+    <PhoneMockup>
+      <Carousel showThumbs={false} infiniteLoop autoPlay>
+        <div>
+          <img
+            src="/fashion-1.jpg"
+            alt="Fashion 1"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div>
+          <img
+            src="/fashion-2.jpg"
+            alt="Fashion 2"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div>
+          <img
+            src="/fashion-3.jpg"
+            alt="Fashion 3"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </Carousel>
+    </PhoneMockup>
   </div>
 );
 const Movie = () => (
   <div className="flex-1 flex justify-center items-center p-4">
-    <h2>Movie Content</h2>
+    <PhoneMockup>
+      <Carousel showThumbs={false} infiniteLoop autoPlay>
+        <div>
+          <img
+            src="/fashion-1.jpg"
+            alt="Fashion 1"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div>
+          <img
+            src="/fashion-2.jpg"
+            alt="Fashion 2"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div>
+          <img
+            src="/fashion-3.jpg"
+            alt="Fashion 3"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </Carousel>
+    </PhoneMockup>
   </div>
 );
 const Hsbc = () => (
   <div className="flex-1 flex justify-center items-center p-4">
-    <h2>HSBC</h2>
+    <PhoneMockup>
+      <Carousel showThumbs={false} infiniteLoop autoPlay>
+        <div>
+          <img
+            src="/fashion-1.jpg"
+            alt="Fashion 1"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div>
+          <img
+            src="/fashion-2.jpg"
+            alt="Fashion 2"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div>
+          <img
+            src="/fashion-3.jpg"
+            alt="Fashion 3"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </Carousel>
+    </PhoneMockup>
   </div>
 );
 
 const Tropicana = () => (
   <div className="flex-1 flex justify-center items-center p-4">
-    <h2>Tropicana Content</h2>
+    <PhoneMockup>
+      <Carousel showThumbs={false} infiniteLoop autoPlay>
+        <div>
+          <img
+            src="/fashion-1.jpg"
+            alt="Fashion 1"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div>
+          <img
+            src="/fashion-2.jpg"
+            alt="Fashion 2"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div>
+          <img
+            src="/fashion-3.jpg"
+            alt="Fashion 3"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </Carousel>
+    </PhoneMockup>
   </div>
 );
 const Innovation = () => (
   <div className="flex-1 flex justify-center items-center p-4">
-    <h2>innovation conetne</h2>
+    <PhoneMockup>
+      <Carousel showThumbs={false} infiniteLoop autoPlay>
+        <div>
+          <img
+            src="/fashion-1.jpg"
+            alt="Fashion 1"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div>
+          <img
+            src="/fashion-2.jpg"
+            alt="Fashion 2"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div>
+          <img
+            src="/fashion-3.jpg"
+            alt="Fashion 3"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </Carousel>
+    </PhoneMockup>
   </div>
 );
 const InnovationBarcode = () => (
   <div className="flex-1 flex justify-center items-center p-4">
-    <h2>innovatin barcode conet</h2>
+    <PhoneMockup>
+      <Carousel showThumbs={false} infiniteLoop autoPlay>
+        <div>
+          <img
+            src="/fashion-1.jpg"
+            alt="Fashion 1"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div>
+          <img
+            src="/fashion-2.jpg"
+            alt="Fashion 2"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div>
+          <img
+            src="/fashion-3.jpg"
+            alt="Fashion 3"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </Carousel>
+    </PhoneMockup>
+  </div>
+);
+
+const RoyalEnfield = () => (
+  <div className="flex-1 flex justify-center items-center p-4">
+    <PhoneMockup>
+      <Carousel showThumbs={false}>
+        <div>
+          <img
+            src="/royalenfield/re.gif"
+            alt="Fashion 1"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </Carousel>
+    </PhoneMockup>
+  </div>
+);
+
+const Hyundai = () => (
+  <div className="flex-1 flex justify-center items-center p-4">
+    <PhoneMockup>
+      <Carousel showThumbs={true} infiniteLoop autoPlay>
+        <div>
+          <img
+            src="/hyundai/1.jpg"
+            alt="Fashion 1"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div>
+          <img
+            src="/hyundai/2.jpg"
+            alt="Fashion 2"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div>
+          <img
+            src="/hyundai/3.jpg"
+            alt="Fashion 3"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </Carousel>
+    </PhoneMockup>
   </div>
 );
 export default function Creatives() {
@@ -70,6 +286,10 @@ export default function Creatives() {
         return <Innovation />;
       case "innovation-barcode":
         return <InnovationBarcode />;
+      case "royal-enfield":
+        return <RoyalEnfield />;
+      case "hyundai":
+        return <Hyundai />;
       case "default":
       default:
         return (
