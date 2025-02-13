@@ -11,7 +11,7 @@ const Sidebar = ({ isOpen, onClose, onSelect }) => {
       <nav className="flex-1 p-4">
         <div className="space-y-8">
           <SidebarItem title="AudienceX">
-            <a
+            {/* <a
               href="#"
               onClick={(e) => {
                 e.preventDefault();
@@ -20,7 +20,7 @@ const Sidebar = ({ isOpen, onClose, onSelect }) => {
               className="block text-black hover:font-semibold no-underline py-2"
             >
               Fashion
-            </a>
+            </a> */}
             <a
               href="#"
               onClick={(e) => {
