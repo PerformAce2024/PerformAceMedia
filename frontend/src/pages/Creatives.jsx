@@ -9,9 +9,10 @@ import TropicanaAd from "../components/Tropicana";
 import AmazonMiniTv from "../components/Amazonminitv";
 import MovieAd from "../components/Movie";
 import HSBCAd from "../components/Hsbc";
+import { Outlet, useNavigate } from "react-router-dom";
 // import FashionAd from "../components/Fashion";
 // Create components for different content
-const VideoPlayer = ({ videoUrl }) => (
+export const VideoPlayer = ({ videoUrl }) => (
   <div className="flex-1 flex justify-center items-center p-4">
     <video className="max-w-full max-h-[70vh] shadow-lg rounded-lg" controls>
       <source src={videoUrl} type="video/mp4" />
@@ -28,21 +29,21 @@ const VideoPlayer = ({ videoUrl }) => (
 //   </div>
 // );
 
-const AmazonMini = () => (
+export const AmazonMini = () => (
   <div className="flex-1 flex justify-center items-center p-4">
     <PhoneMockup>
       <AmazonMiniTv />
     </PhoneMockup>
   </div>
 );
-const Movie = () => (
+export const Movie = () => (
   <div className="flex-1 flex justify-center items-center p-4">
     <PhoneMockup>
       <MovieAd />
     </PhoneMockup>
   </div>
 );
-const Hsbc = () => (
+export const Hsbc = () => (
   <div className="flex-1 flex justify-center items-center p-4">
     <PhoneMockup>
       <HSBCAd />
@@ -50,7 +51,7 @@ const Hsbc = () => (
   </div>
 );
 
-const Tropicana = () => {
+export const Tropicana = () => {
   return (
     <div className="flex-1 flex justify-center items-center p-4">
       <PhoneMockup>
@@ -59,7 +60,7 @@ const Tropicana = () => {
     </div>
   );
 };
-const Innovation = () => (
+export const Innovation = () => (
   <div className="flex-1 flex justify-center items-center p-4">
     <PhoneMockup>
       <Carousel showThumbs={false} infiniteLoop autoPlay>
@@ -88,7 +89,7 @@ const Innovation = () => (
     </PhoneMockup>
   </div>
 );
-const InnovationBarcode = () => (
+export const InnovationBarcode = () => (
   <div className="flex-1 flex justify-center items-center p-4">
     <PhoneMockup>
       <Carousel showThumbs={false} infiniteLoop autoPlay>
@@ -118,7 +119,7 @@ const InnovationBarcode = () => (
   </div>
 );
 
-const RoyalEnfield = () => (
+export const RoyalEnfield = () => (
   <div className="flex-1 flex justify-center items-center p-4">
     <PhoneMockup>
       <Carousel showThumbs={false}>
@@ -134,7 +135,7 @@ const RoyalEnfield = () => (
   </div>
 );
 
-const Hyundai = () => (
+export const Hyundai = () => (
   <div className="flex-1 flex justify-center items-center p-4">
     <PhoneMockup>
       <Carousel showThumbs={true} infiniteLoop autoPlay>
@@ -165,34 +166,10 @@ const Hyundai = () => (
 );
 export default function Creatives() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [selectedContent, setSelectedContent] = useState("default");
+  const navigate = useNavigate();
 
-  const renderContent = () => {
-    switch (selectedContent) {
-      // case "fashion":
-      //   return <Fashion />;
-      case "amazon-mini":
-        return <AmazonMini />;
-      case "movie":
-        return <Movie />;
-      case "hsbc":
-        return <Hsbc />;
-      case "tropicana":
-        return <Tropicana />;
-      case "innovation":
-        return <Innovation />;
-      case "innovation-barcode":
-        return <InnovationBarcode />;
-      case "royal-enfield":
-        return <RoyalEnfield />;
-      case "hyundai":
-        return <Hyundai />;
-      case "default":
-      default:
-        return (
-          <VideoPlayer videoUrl="https://pagedone.io/asset/uploads/1705298724.mp4" />
-        );
-    }
+  const handleContentSelect = (content) => {
+    navigate(`/creatives/${content}`);
   };
 
   return (
@@ -202,9 +179,11 @@ export default function Creatives() {
         <Sidebar
           isOpen={isSidebarOpen}
           onClose={() => setIsSidebarOpen(false)}
-          onSelect={setSelectedContent}
+          onSelect={handleContentSelect}
         />
-        {renderContent()}
+        <div className="flex-1">
+          <Outlet />
+        </div>
       </div>
       <Footer />
     </div>
