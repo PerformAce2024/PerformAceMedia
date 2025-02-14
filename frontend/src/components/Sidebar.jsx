@@ -1,113 +1,131 @@
 import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 const Sidebar = ({ isOpen, onClose, onSelect }) => {
   return (
-    <div
-      className={`w-64 bg-[#F8FBFF] text-black flex flex-col transition-transform duration-300 transform 
-      ${
-        isOpen ? "translate-x-0" : "-translate-x-full"
-      } md:translate-x-0 fixed md:relative h-full`}
-    >
-      <nav className="flex-1 p-4">
-        <div className="space-y-8">
-          <SidebarItem title="AudienceX">
-            {/* <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                onSelect("fashion");
-              }}
-              className="block text-black hover:font-semibold no-underline py-2"
-            >
-              Fashion
-            </a> */}
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                onSelect("amazon-mini");
-              }}
-              className="block text-black hover:font-semibold no-underline py-2"
-            >
-              Amazon-Mini
-            </a>{" "}
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                onSelect("hsbc");
-              }}
-              className="block text-black hover:font-semibold no-underline py-2"
-            >
-              HSBC
-            </a>{" "}
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                onSelect("movie");
-              }}
-              className="block text-black hover:font-semibold no-underline py-2"
-            >
-              Movie
-            </a>{" "}
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                onSelect("tropicana");
-              }}
-              className="block text-black hover:font-semibold no-underline py-2"
-            >
-              Tropicana
-            </a>
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                onSelect("hyundai");
-              }}
-              className="block text-black hover:font-semibold no-underline py-2"
-            >
-              Hyundai
-            </a>
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                onSelect("royal-enfield");
-              }}
-              className="block text-black hover:font-semibold no-underline py-2"
-            >
-              Royal Enfield
-            </a>
-          </SidebarItem>
+    <>
+      {/* Overlay for mobile */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-[90] md:hidden"
+          onClick={onClose}
+        />
+      )}
 
-          <SidebarItem title="VisionTV">
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                onSelect("innovation");
-              }}
-              className="block text-black hover:font-semibold no-underline py-2"
-            >
-              Innovation
-            </a>{" "}
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                onSelect("innovation-barcode");
-              }}
-              className="block text-black hover:font-semibold no-underline py-2"
-            >
-              Innovation Barcode
-            </a>
-          </SidebarItem>
-        </div>
-      </nav>
-    </div>
+      {/* Mobile Toggle Button - Positioned below navbar */}
+      <button
+        className="md:hidden fixed left-2 top-[90px] z-[110]  bg-white rounded-md shadow-md"
+        onClick={() => onClose()}
+      >
+        {isOpen ? <X size={24} /> : <Menu size={24} />}
+      </button>
+
+      {/* Sidebar */}
+      <div
+        className={`w-64 bg-[#F8FBFF] text-black flex flex-col fixed md:relative 
+        h-[calc(100vh-100px)] z-[95] transition-transform duration-300 transform 
+        ${isOpen ? "translate-x-0" : "-translate-x-full"} 
+        md:translate-x-0 top-[100px] md:top-0`}
+      >
+        <nav className="flex-1 p-4 overflow-y-auto">
+          <div className="space-y-8">
+            <SidebarItem title="AudienceX">
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onSelect("amazon-mini");
+                  onClose();
+                }}
+                className="block text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-md px-3 py-2 transition-colors duration-200"
+              >
+                Amazon-Mini
+              </a>
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onSelect("hsbc");
+                  onClose();
+                }}
+                className="block text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-md px-3 py-2 transition-colors duration-200"
+              >
+                HSBC
+              </a>
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onSelect("movie");
+                  onClose();
+                }}
+                className="block text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-md px-3 py-2 transition-colors duration-200"
+              >
+                Movie
+              </a>
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onSelect("tropicana");
+                  onClose();
+                }}
+                className="block text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-md px-3 py-2 transition-colors duration-200"
+              >
+                Tropicana
+              </a>
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onSelect("hyundai");
+                  onClose();
+                }}
+                className="block text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-md px-3 py-2 transition-colors duration-200"
+              >
+                Hyundai
+              </a>
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onSelect("royal-enfield");
+                  onClose();
+                }}
+                className="block text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-md px-3 py-2 transition-colors duration-200"
+              >
+                Royal Enfield
+              </a>
+            </SidebarItem>
+
+            <SidebarItem title="VisionTV">
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onSelect("innovation");
+                  onClose();
+                }}
+                className="block text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-md px-3 py-2 transition-colors duration-200"
+              >
+                Innovation
+              </a>
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onSelect("innovation-barcode");
+                  onClose();
+                }}
+                className="block text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-md px-3 py-2 transition-colors duration-200"
+              >
+                Innovation Barcode
+              </a>
+            </SidebarItem>
+          </div>
+        </nav>
+      </div>
+    </>
   );
 };
 
@@ -117,7 +135,7 @@ const SidebarItem = ({ title, children }) => {
   return (
     <div className="relative">
       <button
-        className="w-full flex items-center justify-between p-2 text-black hover:bg-[#F8FBFF] rounded"
+        className="w-full flex items-center justify-between p-2 text-gray-700 hover:bg-gray-100 rounded-md"
         onClick={() => setIsOpen(!isOpen)}
       >
         <span className="font-medium text-lg">{title}</span>
@@ -139,7 +157,7 @@ const SidebarItem = ({ title, children }) => {
         </svg>
       </button>
 
-      {isOpen && <div className="mt-2 pl-4 space-y-1">{children}</div>}
+      {isOpen && <div className="mt-2 space-y-1">{children}</div>}
     </div>
   );
 };

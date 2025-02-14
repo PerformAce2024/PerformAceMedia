@@ -172,13 +172,17 @@ export default function Creatives() {
     navigate(`/creatives/${content}`);
   };
 
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
     <div className="min-h-screen">
-      <Navbar className="z-50" />
+      <Navbar />
       <div className="flex min-h-screen pt-[100px]">
         <Sidebar
           isOpen={isSidebarOpen}
-          onClose={() => setIsSidebarOpen(false)}
+          onClose={toggleSidebar}
           onSelect={handleContentSelect}
         />
         <div className="flex-1">
