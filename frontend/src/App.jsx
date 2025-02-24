@@ -5,17 +5,17 @@ import Product from "./pages/Product";
 import ContactUs from "./pages/ContactUs";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Creatives, {
-  AmazonMini,
-  Hsbc,
-  Hyundai,
-  Innovation,
-  InnovationBarcode,
-  Movie,
-  RoyalEnfield,
-  Tropicana,
-  VideoPlayer,
-} from "./pages/Creatives";
+// import Creatives, {
+//   AmazonMini,
+//   Hsbc,
+//   Hyundai,
+//   Innovation,
+//   InnovationBarcode,
+//   Movie,
+//   RoyalEnfield,
+//   Tropicana,
+//   VideoPlayer,
+// } from "./pages/Creatives";
 
 function App() {
   return (
@@ -26,7 +26,7 @@ function App() {
         <Route path="/services" element={<Service />} />
         <Route path="/product" element={<Product />} />
         <Route path="/contact-us" element={<ContactUs />} />
-        <Route path="/creatives" element={<Creatives />}>
+        {/* <Route path="/creatives" element={<Creatives />}>
           <Route
             index
             element={
@@ -41,7 +41,7 @@ function App() {
           <Route path="innovation-barcode" element={<InnovationBarcode />} />
           <Route path="royal-enfield" element={<RoyalEnfield />} />
           <Route path="hyundai" element={<Hyundai />} />
-        </Route>
+        </Route> */}
       </Routes>
     </BrowserRouter>
   );

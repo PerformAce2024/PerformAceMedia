@@ -28,12 +28,12 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center space-x-8">
-            <Link
+            {/* <Link
               to="/creatives"
               className="text-gray-700 hover:text-gray-900 text-lg"
             >
               Creatives
-            </Link>
+            </Link> */}
             <Link
               to="/about-us"
               className="text-gray-700 hover:text-gray-900 text-lg"
