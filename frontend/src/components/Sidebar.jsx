@@ -29,7 +29,7 @@ const Sidebar = ({ isOpen, onClose, onSelect }) => {
       >
         <nav className="flex-1 p-4 overflow-y-auto">
           <div className="space-y-8">
-            <SidebarItem title="AudienceX">
+            <SidebarItem title="NativeHub">
               <a
                 href="#"
                 onClick={(e) => {
@@ -98,28 +98,39 @@ const Sidebar = ({ isOpen, onClose, onSelect }) => {
               </a>
             </SidebarItem>
 
-            <SidebarItem title="VisionTV">
+            <SidebarItem title="Innovations">
               <a
                 href="#"
                 onClick={(e) => {
                   e.preventDefault();
-                  onSelect("innovation");
+                  onSelect("visionTV");
                   onClose();
                 }}
                 className="block text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-md px-3 py-2 transition-colors duration-200"
               >
-                Innovation
+                Vision TV
               </a>
               <a
                 href="#"
                 onClick={(e) => {
                   e.preventDefault();
-                  onSelect("innovation-barcode");
+                  onSelect("audience-X");
                   onClose();
                 }}
                 className="block text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-md px-3 py-2 transition-colors duration-200"
               >
-                Innovation Barcode
+                Audience X
+              </a>
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onSelect("nativehub");
+                  onClose();
+                }}
+                className="block text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-md px-3 py-2 transition-colors duration-200"
+              >
+                Native Hub
               </a>
             </SidebarItem>
           </div>

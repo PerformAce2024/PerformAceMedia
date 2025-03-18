@@ -5,17 +5,18 @@ import Product from "./pages/Product";
 import ContactUs from "./pages/ContactUs";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import Creatives, {
-//   AmazonMini,
-//   Hsbc,
-//   Hyundai,
-//   Innovation,
-//   InnovationBarcode,
-//   Movie,
-//   RoyalEnfield,
-//   Tropicana,
-//   VideoPlayer,
-// } from "./pages/Creatives";
+import Creatives, {
+  AmazonMini,
+  Audiencex,
+  Hsbc,
+  Hyundai,
+  Movie,
+  Nativehub,
+  RoyalEnfield,
+  Tropicana,
+  VideoPlayer,
+  VisionTV,
+} from "./pages/Creatives";
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
         <Route path="/services" element={<Service />} />
         <Route path="/product" element={<Product />} />
         <Route path="/contact-us" element={<ContactUs />} />
-        {/* <Route path="/creatives" element={<Creatives />}>
+        <Route path="/creatives" element={<Creatives />}>
           <Route
             index
             element={
@@ -37,11 +38,12 @@ function App() {
           <Route path="movie" element={<Movie />} />
           <Route path="hsbc" element={<Hsbc />} />
           <Route path="tropicana" element={<Tropicana />} />
-          <Route path="innovation" element={<Innovation />} />
-          <Route path="innovation-barcode" element={<InnovationBarcode />} />
+          <Route path="visionTV" element={<VisionTV />} />
+          <Route path="nativehub" element={<Nativehub />} />
+          <Route path="audience-X" element={<Audiencex />} />
           <Route path="royal-enfield" element={<RoyalEnfield />} />
           <Route path="hyundai" element={<Hyundai />} />
-        </Route> */}
+        </Route>
       </Routes>
     </BrowserRouter>
   );

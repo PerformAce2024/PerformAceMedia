@@ -9,7 +9,10 @@ import TropicanaAd from "../components/Tropicana";
 import AmazonMiniTv from "../components/Amazonminitv";
 import MovieAd from "../components/Movie";
 import HSBCAd from "../components/Hsbc";
+import NativeHub from "../components/Nativehub";
+import AudienceX from "../components/AudienceX";
 import { Outlet, useNavigate } from "react-router-dom";
+import Visiontv from "../components/Visiontv";
 // import FashionAd from "../components/Fashion";
 // Create components for different content
 export const VideoPlayer = ({ videoUrl }) => (
@@ -36,6 +39,11 @@ export const AmazonMini = () => (
     </PhoneMockup>
   </div>
 );
+export const VisionTV = () => (
+  <div className="flex-1 flex justify-center items-center p-4">
+    <Visiontv />
+  </div>
+);
 export const Movie = () => (
   <div className="flex-1 flex justify-center items-center p-4">
     <PhoneMockup>
@@ -60,62 +68,14 @@ export const Tropicana = () => {
     </div>
   );
 };
-export const Innovation = () => (
+export const Nativehub = () => (
   <div className="flex-1 flex justify-center items-center p-4">
-    <PhoneMockup>
-      <Carousel showThumbs={false} infiniteLoop autoPlay>
-        <div>
-          <img
-            src="/fashion-1.jpg"
-            alt="Fashion 1"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div>
-          <img
-            src="/fashion-2.jpg"
-            alt="Fashion 2"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div>
-          <img
-            src="/fashion-3.jpg"
-            alt="Fashion 3"
-            className="w-full h-full object-cover"
-          />
-        </div>
-      </Carousel>
-    </PhoneMockup>
+    <NativeHub />
   </div>
 );
-export const InnovationBarcode = () => (
+export const Audiencex = () => (
   <div className="flex-1 flex justify-center items-center p-4">
-    <PhoneMockup>
-      <Carousel showThumbs={false} infiniteLoop autoPlay>
-        <div>
-          <img
-            src="/fashion-1.jpg"
-            alt="Fashion 1"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div>
-          <img
-            src="/fashion-2.jpg"
-            alt="Fashion 2"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div>
-          <img
-            src="/fashion-3.jpg"
-            alt="Fashion 3"
-            className="w-full h-full object-cover"
-          />
-        </div>
-      </Carousel>
-    </PhoneMockup>
+    <AudienceX />
   </div>
 );
 
