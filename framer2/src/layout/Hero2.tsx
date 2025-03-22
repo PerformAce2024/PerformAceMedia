@@ -40,6 +40,36 @@ export default function HeroSection2() {
             className="object-cover w-full h-full"
           />
         </motion.div>
+        <section className="flex justify-between  py-16">
+          <div className="transform space-y-6 z-10 ">
+            <h1 className="text-8xl font-extrabold">
+              <span className="text-secondary">InsightX</span>
+              <br />
+            </h1>
+            <p className="text-2xl text-secondary font-normal">
+              Tech + Data + APIs
+            </p>
+            <p className="text-2xl text-accent font-normal">
+              Deterministic Segmentation like never before
+            </p>
+            <Link
+              to={"/audiencex"}
+              className="inline-block bg-primary text-secondary border-accent border-solid border-2 font-bold font-sans rounded-full px-8 py-3"
+            >
+              Learn More
+            </Link>
+          </div>
+          <div className="z-20 ">
+            <div className="w-lg">
+              <img src="/InsightX.png" alt="audienceX" />
+            </div>
+            <div className="mt-6">
+              <p className="text-4xl text-accent font-bold bg-[linear-gradient(180deg, #FC213B 0%, #961423 100%)]">
+                Deterministic Segmentation
+              </p>
+            </div>
+          </div>
+        </section>
         <section className="flex justify-between flex-row-reverse py-16">
           <div className="transform space-y-6 z-10 ">
             <h1 className="text-8xl font-extrabold">
@@ -51,17 +81,17 @@ export default function HeroSection2() {
             </p>
             <p className="text-2xl text-accent font-normal">Brand Matrix </p>
             <Link
-              to={"/audienceX"}
+              to={"/audiencex"}
               className="inline-block bg-primary text-secondary border-accent border-solid border-2 font-bold font-sans rounded-full px-8 py-3"
             >
               Learn More
             </Link>
           </div>
           <div className="z-20 ">
-            <div className="w-lg scale-x-[-1]">
+            <div className="w-4xl scale-x-[-1]">
               <img src="/audienceX.png" alt="audienceX" />
             </div>
-            <div className="mt-6">
+            <div className="mt-6 text-left">
               <p className="text-4xl text-accent font-bold bg-[linear-gradient(180deg, #FC213B 0%, #961423 100%)]">
                 Brand Matrix{" "}
               </p>
@@ -129,99 +159,6 @@ export default function HeroSection2() {
             </div>
           </div>
         </section>
-        {/* <section className=" flex items-center py-16 h-screen relative ">
-          <motion.div
-            className="transform space-y-6 space-x-2"
-            initial={{ opacity: 0, x: "-100%" }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: "easeInOut", delay: 0.5 }}
-          >
-            <h1 className="text-8xl font-extrabold">
-              <span className="text-secondary">InsightX</span>
-              <br />
-            </h1>
-            <p className="text-2xl text-secondary font-normal">
-              Tech + Data + APIs
-            </p>
-            <p className="text-2xl text-accent font-normal">
-              Deterministic Segmentation like never before
-            </p>
-            <Link
-              to={"/insightx"}
-              className="inline-block bg-primary text-secondary border-accent  border-solid border-2 font-bold font-sans rounded-full px-8 py-3"
-            >
-              Learn More
-            </Link>
-          </motion.div>
-          <div className="relative">
-            <motion.div
-              initial={{ opacity: 0, x: "100%" }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, ease: "easeInOut", delay: 0.5 }}
-              className="flex flex-col items-center"
-            >
-              <div className="w-lg ">
-                <img src="/InsightX.png" alt="InsightX" />
-              </div>
-
-              <motion.div
-                initial={{ opacity: 0, y: "100%" }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeInOut", delay: 0.5 }}
-                className="mt-6"
-              >
-                <p className="text-4xl text-accent font-bold bg-[linear-gradient(180deg, #FC213B 0%, #961423 100%)] ">
-                  Deterministic Segmentation
-                </p>
-              </motion.div>
-            </motion.div>
-          </div>
-        </section>
-        <section className=" flex items-center py-16 h-screen relative justify-end">
-          <motion.div
-            className="transform space-y-6"
-            initial={{ opacity: 0, x: "200%" }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: "easeInOut" }}
-          >
-            <h1 className="text-7xl font-extrabold">
-              <span className="text-accent">Build</span>
-              <br />
-            </h1>
-            <p className="text-lg md:text-4xl text-secondary font-normal">
-              Your Ace to make marketing perform
-            </p>
-            <Link
-              to={"/partners"}
-              className="inline-block bg-accent text-primary font-bold font-sans rounded-full px-8 py-3"
-            >
-              Slide into our Inbox
-            </Link>
-          </motion.div>
-        </section>
-
-        <section className=" flex items-center py-16 h-screen relative ">
-          <motion.div
-            className="transform space-y-6"
-            initial={{ opacity: 0, x: "-100%" }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: "easeInOut" }}
-          >
-            <h1 className="text-7xl font-extrabold">
-              <span className="text-accent">Build</span>
-              <br />
-            </h1>
-            <p className="text-lg md:text-4xl text-secondary font-normal">
-              Your Ace to make marketing perform
-            </p>
-            <Link
-              to={"/partners"}
-              className="inline-block bg-accent text-primary font-bold font-sans rounded-full px-8 py-3"
-            >
-              Slide into our Inbox
-            </Link>
-          </motion.div>
-        </section> */}
       </div>
     </>
   );
