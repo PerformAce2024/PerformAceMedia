@@ -7,7 +7,7 @@ interface NavbarProps {
 export default function Navbar({ routes }: NavbarProps) {
   return (
     <>
-      <div className="flex fixed z-20 inset-x-0 top-0 justify-between p-5 ">
+      <div className=" flex fixed z-20 inset-x-0 top-0 justify-between p-5 ">
         <Link to="/">
           <img src="/logo.png" alt="logo" className="h-16 w-auto "></img>
         </Link>

@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function Partners() {
-  return <div>Partners</div>;
+  return <div className="bg-primary h-screen">Partners</div>;
 }
