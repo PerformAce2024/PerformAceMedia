@@ -1,5 +1,3 @@
-import React from "react";
-
 const UseCasesLayout = () => {
   // Sample case study data
   const caseStudies = [
