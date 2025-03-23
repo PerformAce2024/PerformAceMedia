@@ -1,5 +1,3 @@
-import React from "react";
-
 const GradientCards = () => {
   // Sample card data - this can be replaced with your actual data
   const cardData = [
