@@ -32,6 +32,15 @@ export default function Navbar({ routes }: NavbarProps) {
     };
   }, []);
 
+  // Function to check if a route is enabled
+  const isRouteEnabled = (routePath: string) => {
+    return (
+      routePath === "/" ||
+      routePath === "/insightx" ||
+      routePath === "/audienceX"
+    );
+  };
+
   return (
     <>
       <div
@@ -51,13 +60,25 @@ export default function Navbar({ routes }: NavbarProps) {
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8 lg:space-x-12">
             {routes.map((route, index) => (
-              <Link
-                key={index}
-                to={route.path}
-                className="hover:text-accent text-base text-secondary font-sans font-semibold p-2 transition-colors duration-200"
-              >
-                {route.name}
-              </Link>
+              <div key={index} className="relative group">
+                {isRouteEnabled(route.path) ? (
+                  <Link
+                    to={route.path}
+                    className="hover:text-accent text-base text-secondary font-sans font-semibold p-2 transition-colors duration-200"
+                  >
+                    {route.name}
+                  </Link>
+                ) : (
+                  <span className="text-base text-gray-500 font-sans font-semibold p-2 cursor-not-allowed">
+                    {route.name}
+                  </span>
+                )}
+                {!isRouteEnabled(route.path) && (
+                  <div className="absolute left-1/2 transform -translate-x-1/2 -bottom-10 bg-primary text-secondary text-sm py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
+                    Coming Soon
+                  </div>
+                )}
+              </div>
             ))}
           </div>
 
@@ -95,14 +116,24 @@ export default function Navbar({ routes }: NavbarProps) {
         >
           <div className="flex flex-col space-y-6">
             {routes.map((route, index) => (
-              <Link
-                key={index}
-                to={route.path}
-                className="text-secondary text-xl font-sans font-semibold p-2 border-b border-gray-700 hover:text-accent transition-colors duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {route.name}
-              </Link>
+              <div key={index} className="relative">
+                {isRouteEnabled(route.path) ? (
+                  <Link
+                    to={route.path}
+                    className="text-secondary text-xl font-sans font-semibold p-2 border-b border-gray-700 hover:text-accent transition-colors duration-200 block"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {route.name}
+                  </Link>
+                ) : (
+                  <div className="text-gray-500 text-xl font-sans font-semibold p-2 border-b border-gray-700 flex justify-between items-center">
+                    <span>{route.name}</span>
+                    <span className="text-sm bg-primary px-2 py-1 rounded text-secondary">
+                      Coming Soon
+                    </span>
+                  </div>
+                )}
+              </div>
             ))}
           </div>
         </div>
