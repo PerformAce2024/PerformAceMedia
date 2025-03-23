@@ -50,3 +50,7 @@
   --color-graphics-red: #ef4444;
   --color-graphics-yellow: #ffaf34;
 }
+
+body {
+  overflow-x: hidden;
+}

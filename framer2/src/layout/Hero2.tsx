@@ -1,404 +1,349 @@
 import { Link } from "react-router-dom";
-import { useRef, useEffect } from "react";
-import { motion, useAnimation, useInView, useScroll } from "motion/react";
+import { useEffect, useRef } from "react";
+import { motion, useScroll, useSpring, useTransform } from "motion/react";
 
 export default function HeroSection2() {
-  // Create refs for the whole container and each section
-  const containerRef = useRef(null);
-  const insightXRef = useRef(null);
-  const audienceXRef = useRef(null);
-  const visionTVRef = useRef(null);
-  const nativeHUBRef = useRef(null);
-
-  // Set up more precise scroll tracking for each section
-  const { scrollYProgress: containerScrollProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "start start"],
+  const heroRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end end"],
   });
 
-  // Check if sections are in view with more strict parameters
-  const insightXInView = useInView(insightXRef, { once: true, amount: 0.6 });
-  const audienceXInView = useInView(audienceXRef, { once: true, amount: 0.6 });
-  const visionTVInView = useInView(visionTVRef, { once: true, amount: 0.6 });
-  const nativeHUBInView = useInView(nativeHUBRef, { once: true, amount: 0.6 });
-
-  // Create animation controls for each section
-  const insightXControls = useAnimation();
-  const audienceXControls = useAnimation();
-  const visionTVControls = useAnimation();
-  const nativeHUBControls = useAnimation();
-
-  // Trigger animations when sections come into view
   useEffect(() => {
-    if (insightXInView) {
-      insightXControls.start("visible");
-    }
-  }, [insightXInView, insightXControls]);
+    // Create a subscription to scrollYProgress changes
+    const unsubscribe = scrollYProgress.on("change", (value) => {
+      console.log("Current scroll progress:", value);
+    });
 
-  useEffect(() => {
-    if (audienceXInView) {
-      audienceXControls.start("visible");
-    }
-  }, [audienceXInView, audienceXControls]);
+    // Clean up subscription when component unmounts
+    return () => unsubscribe();
+  }, [scrollYProgress]);
 
-  useEffect(() => {
-    if (visionTVInView) {
-      visionTVControls.start("visible");
-    }
-  }, [visionTVInView, visionTVControls]);
+  // Section 1 - InsightX (0 to 0.25)
+  // - Entry animations with more bounce
+  const insightXLeftTransform = useSpring(
+    useTransform(
+      scrollYProgress,
+      [0, 0.0833, 0.1667, 0.25],
+      ["-100vw", "0vw", "0vw", "-100vw"]
+    ),
+    { stiffness: 180, damping: 18, mass: 1.2 }
+  );
+  const insightXRightTransform = useSpring(
+    useTransform(
+      scrollYProgress,
+      [0, 0.0833, 0.1667, 0.25],
+      ["100vw", "0vw", "0vw", "100vw"]
+    ),
+    { stiffness: 180, damping: 18, mass: 1.2 }
+  );
 
-  useEffect(() => {
-    if (nativeHUBInView) {
-      nativeHUBControls.start("visible");
-    }
-  }, [nativeHUBInView, nativeHUBControls]);
+  // Section 2 - AudienceX (0.25 to 0.5)
+  // - Fade animations should be smoother with less bounce
+  const audienceXFadeTransform = useSpring(
+    useTransform(scrollYProgress, [0.1667, 0.25, 0.4167, 0.5], [0, 1, 1, 0]),
+    { stiffness: 100, damping: 22 }
+  );
 
-  // Animation variants
-  const textFromLeftVariants = {
-    hidden: { x: -100, opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-        staggerChildren: 0.2,
-        delayChildren: 0.1, // Small delay before starting child animations
-      },
-    },
-  };
+  // - Vertical slide animations with medium bounce
+  const audienceXRightSlideTransform = useSpring(
+    useTransform(
+      scrollYProgress,
+      [0.1667, 0.2083, 0.25],
+      ["100vh", "50vh", "0vh"]
+    ),
+    { stiffness: 150, damping: 20, mass: 1 }
+  );
 
-  const textItemVariants = {
-    hidden: { x: -50, opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: { duration: 0.5 },
-    },
-  };
+  // - Exit animations should be crisp with less bounce
+  const audienceXRightSlideRightTransform = useSpring(
+    useTransform(scrollYProgress, [0.4167, 0.5], ["0vw", "100vw"]),
+    { stiffness: 220, damping: 28 }
+  );
+  const audienceXLeftSlideLeftTransform = useSpring(
+    useTransform(scrollYProgress, [0.4167, 0.5], ["0vw", "-100vw"]),
+    { stiffness: 220, damping: 28 }
+  );
 
-  const imageFromRightVariants = {
-    hidden: { x: 100, opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: { duration: 0.8, ease: "easeOut" },
-    },
-  };
+  // Section 3 - VisionTV (0.5 to 0.75)
+  // - Entry animations with pleasant bounce
+  const visionTVLeftSlideUpTransform = useSpring(
+    useTransform(
+      scrollYProgress,
+      [0.4167, 0.4583, 0.5],
+      ["100vh", "50vh", "0vh"]
+    ),
+    { stiffness: 170, damping: 19, mass: 1.1 }
+  );
 
-  const textFromBottomVariants = {
-    hidden: { y: 50, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.6, delay: 0.3, ease: "easeOut" },
-    },
-  };
+  // - Exit animations with less bounce
+  const visionTVLeftSlideLeftTransform = useSpring(
+    useTransform(scrollYProgress, [0.6667, 0.75], ["0vw", "-100vw"]),
+    { stiffness: 230, damping: 27 }
+  );
+  const visionTVRightSlideRightTransform = useSpring(
+    useTransform(scrollYProgress, [0.6667, 0.75], ["0vw", "100vw"]),
+    { stiffness: 230, damping: 27 }
+  );
 
-  const imageFromLeftVariants = {
-    hidden: { x: -100, opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: { duration: 0.8, ease: "easeOut" },
-    },
-  };
+  // - Fade animations smooth
+  const visionTVFadeTransform = useSpring(
+    useTransform(scrollYProgress, [0.4167, 0.5, 0.6667, 0.75], [0, 1, 1, 0]),
+    { stiffness: 100, damping: 24 }
+  );
 
-  const textFromRightVariants = {
-    hidden: { x: 100, opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-        staggerChildren: 0.2,
-        delayChildren: 0.1, // Small delay before starting child animations
-      },
-    },
-  };
+  // Section 4 - NativeHUB (0.75 to 1.0)
+  // - Final section entry with special attention
+  const nativeHubLeftFadeTransform = useSpring(
+    useTransform(
+      scrollYProgress,
+      [0.6667, 0.7083, 0.75],
+      ["100vh", "50vh", "0vh"]
+    ),
+    { stiffness: 160, damping: 20, mass: 1.1 }
+  );
 
-  // Threshold config for better scroll-based triggering
-  const thresholdConfig = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.7, // Higher threshold to delay animation start
-  };
-
-  // Track when container enters viewport to trigger first animation
-  useEffect(() => {
-    const handleScroll = () => {
-      if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
-        // If top of container is at or above the top of viewport,
-        // and container is fully visible
-        if (rect.top <= 0 && rect.bottom > window.innerHeight) {
-          insightXControls.start("visible");
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [insightXControls]);
+  // - Final section fade in with smooth elegant feel
+  const nativeHubRightSlideUpTransform = useSpring(
+    useTransform(scrollYProgress, [0.6667, 0.75, 1.0], [0, 1, 1]),
+    { stiffness: 120, damping: 24, mass: 1 }
+  );
 
   return (
-    <div ref={containerRef} className="relative bg-black text-white">
-      {/* InsightX Section */}
-      <section ref={insightXRef} className="min-h-screen flex items-center">
-        <div className="container mx-auto px-5">
-          <div className="flex items-center justify-between">
+    <>
+      {/* Main container with 500vh height to allow scrolling */}
+      <div
+        ref={heroRef}
+        className="container mx-auto px-5 h-[500vh] w-full relative"
+      >
+        {/* Container that sticks to the top and holds all sections */}
+        <div className="sticky top-0 w-full h-screen">
+          {/* Create visibility transforms for each section */}
+          {/* Section 1 - InsightX (0 to 0.25) */}
+          <motion.section
+            className="absolute top-0 left-0 right-0 flex justify-between py-16 bg-primary h-full"
+            style={{
+              opacity: useTransform(
+                scrollYProgress,
+                [0, 0.0833, 0.1667, 0.25],
+                [0, 1, 1, 0]
+              ),
+              display: useTransform(scrollYProgress, (value) =>
+                value <= 0.3 ? "flex" : "none"
+              ),
+            }}
+          >
             <motion.div
-              className="w-1/2"
-              initial="hidden"
-              animate={insightXControls}
-              variants={textFromLeftVariants}
+              style={{
+                x: insightXLeftTransform,
+              }}
+              className="transform space-y-6 mt-40"
             >
-              <motion.h2
-                variants={textItemVariants}
-                className="text-8xl font-bold text-secondary"
-              >
-                InsightX
-              </motion.h2>
-              <motion.p
-                variants={textItemVariants}
-                className="text-2xl text-secondary mt-6"
-              >
+              <h1 className="text-8xl font-extrabold">
+                <span className="text-secondary">InsightX</span>
+                <br />
+              </h1>
+              <p className="text-2xl text-secondary font-normal">
                 Tech + Data + APIs
-              </motion.p>
-              <motion.p
-                variants={textItemVariants}
-                className="text-2xl text-accent"
-              >
+              </p>
+              <p className="text-2xl text-accent font-normal">
                 Deterministic Segmentation like never before
-              </motion.p>
-              <motion.div variants={textItemVariants}>
-                <Link
-                  to="/insightx"
-                  className="inline-block mt-6 bg-primary text-secondary border-accent border-solid border-2 font-bold rounded-full px-8 py-3"
-                >
-                  Learn More
-                </Link>
-              </motion.div>
+              </p>
+              <Link
+                to={"/insightx"}
+                className="inline-block bg-primary text-secondary border-accent border-solid border-2 font-bold font-sans rounded-full px-8 py-3"
+              >
+                Learn More
+              </Link>
             </motion.div>
-            <div className="w-1/2 relative flex flex-col items-end">
-              <motion.div
-                className="relative"
-                initial="hidden"
-                animate={insightXControls}
-                variants={imageFromRightVariants}
-              >
-                <img
-                  src="/InsightX.png"
-                  alt="Red Circle with People"
-                  className="w-full"
-                />
-              </motion.div>
-              <motion.div
-                className="mt-6"
-                initial="hidden"
-                animate={insightXControls}
-                variants={textFromBottomVariants}
-              >
-                <p className="text-4xl text-accent font-bold">
+            <motion.div
+              style={{
+                x: insightXRightTransform,
+              }}
+            >
+              <div className="w-96 mt-40 mr-20">
+                <img src="/InsightX.png" alt="insightx" />
+              </div>
+              <div className="mt-6">
+                <p className="text-4xl text-accent font-bold bg-[linear-gradient(180deg, #FC213B 0%, #961423 100%)]">
                   Deterministic Segmentation
                 </p>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* AudienceX Section */}
-      <section ref={audienceXRef} className="min-h-screen flex items-center">
-        <div className="container mx-auto px-5">
-          <div className="flex items-center justify-between">
-            <motion.div
-              className="w-2/5 mr-8"
-              initial="hidden"
-              animate={audienceXControls}
-              variants={imageFromLeftVariants}
-            >
-              <div className="relative">
-                <img
-                  src="/audienceX.png"
-                  alt="Person with Megaphone"
-                  className="w-full"
-                />
               </div>
-              <motion.div
-                className="mt-6 text-left"
-                initial="hidden"
-                animate={audienceXControls}
-                variants={textFromBottomVariants}
-              >
-                <p className="text-4xl text-accent font-bold">Brand Matrix</p>
-              </motion.div>
             </motion.div>
+          </motion.section>
+
+          {/* Section 2 - AudienceX (0.25 to 0.5) */}
+          <motion.section
+            className="absolute top-0 left-0 right-0 flex justify-between flex-row-reverse py-16 bg-primary h-full"
+            style={{
+              opacity: useTransform(
+                scrollYProgress,
+                [0.1667, 0.25, 0.4167, 0.5],
+                [0, 1, 1, 0]
+              ),
+              display: useTransform(scrollYProgress, (value) =>
+                value > 0.2 && value <= 0.55 ? "flex" : "none"
+              ),
+            }}
+          >
             <motion.div
-              className="w-3/5"
-              initial="hidden"
-              animate={audienceXControls}
-              variants={textFromRightVariants}
+              style={{
+                y: audienceXRightSlideTransform,
+                x: audienceXRightSlideRightTransform,
+              }}
+              className="transform space-y-6 mt-40"
             >
-              <motion.h2
-                variants={textItemVariants}
-                className="text-8xl font-bold text-secondary"
-              >
-                AudienceX
-              </motion.h2>
-              <motion.p
-                variants={textItemVariants}
-                className="text-2xl text-secondary mt-6"
-              >
+              <h1 className="text-8xl font-extrabold">
+                <span className="text-secondary">AudienceX</span>
+                <br />
+              </h1>
+              <p className="text-2xl text-secondary font-normal">
                 Planning Execution RichMedia
-              </motion.p>
-              <motion.p
-                variants={textItemVariants}
-                className="text-2xl text-accent"
+              </p>
+              <p className="text-2xl text-accent font-normal">Brand Matrix </p>
+              <Link
+                to={"/audiencex"}
+                className="inline-block bg-primary text-secondary border-accent border-solid border-2 font-bold font-sans rounded-full px-8 py-3"
               >
-                Brand Matrix
-              </motion.p>
-              <motion.div variants={textItemVariants}>
-                <Link
-                  to="/audiencex"
-                  className="inline-block mt-6 bg-primary text-secondary border-accent border-solid border-2 font-bold rounded-full px-8 py-3"
-                >
-                  Learn More
-                </Link>
-              </motion.div>
+                Learn More
+              </Link>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* VisionTV Section */}
-      <section ref={visionTVRef} className="min-h-screen flex items-center">
-        <div className="container mx-auto px-5">
-          <div className="flex items-center justify-between">
             <motion.div
-              className="w-1/2"
-              initial="hidden"
-              animate={visionTVControls}
-              variants={textFromLeftVariants}
+              style={{
+                opacity: audienceXFadeTransform,
+                x: audienceXLeftSlideLeftTransform,
+              }}
             >
-              <motion.h2
-                variants={textItemVariants}
-                className="text-8xl font-bold text-secondary"
-              >
-                VisionTV
-              </motion.h2>
-              <motion.p
-                variants={textItemVariants}
-                className="text-2xl text-secondary mt-6"
-              >
-                OTT, OEMs, Fast Channels
-              </motion.p>
-              <motion.p
-                variants={textItemVariants}
-                className="text-2xl text-accent"
-              >
-                Unified CTV Plants
-              </motion.p>
-              <motion.div variants={textItemVariants}>
-                <Link
-                  to="/visiontv"
-                  className="inline-block mt-6 bg-primary text-secondary border-accent border-solid border-2 font-bold rounded-full px-8 py-3"
-                >
-                  Learn More
-                </Link>
-              </motion.div>
-            </motion.div>
-            <div className="w-1/2 relative flex flex-col items-end">
-              <motion.div
-                className="relative"
-                initial="hidden"
-                animate={visionTVControls}
-                variants={imageFromRightVariants}
-              >
-                <img
-                  src="/NativeHUB.png"
-                  alt="Black Products"
-                  className="w-full"
-                />
-              </motion.div>
-              <motion.div
-                className="mt-6"
-                initial="hidden"
-                animate={visionTVControls}
-                variants={textFromBottomVariants}
-              >
-                <p className="text-4xl text-accent font-bold">Brand Stature</p>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* NativeHUB Section */}
-      <section ref={nativeHUBRef} className="min-h-screen flex items-center">
-        <div className="container mx-auto px-5">
-          <div className="flex items-center justify-between">
-            <motion.div
-              className="w-2/5 mr-8"
-              initial="hidden"
-              animate={nativeHUBControls}
-              variants={imageFromLeftVariants}
-            >
-              <div className="relative">
-                <img
-                  src="/NativeHUB.png"
-                  alt="Black Products"
-                  className="w-full scale-x-[-1]"
-                />
+              <div className="w-2xl scale-x-[-1]">
+                <img src="/audienceX.png" alt="audienceX" />
               </div>
-              <motion.div
-                className="mt-6 text-left"
-                initial="hidden"
-                animate={nativeHUBControls}
-                variants={textFromBottomVariants}
+              <div className="mt-6 text-left">
+                <p className="text-4xl text-accent font-bold bg-[linear-gradient(180deg, #FC213B 0%, #961423 100%)]">
+                  Brand Matrix{" "}
+                </p>
+              </div>
+            </motion.div>
+          </motion.section>
+
+          {/* Section 3 - VisionTV (0.5 to 0.75) */}
+          <motion.section
+            className="absolute top-0 left-0 right-0 flex justify-between py-16 bg-primary h-full"
+            style={{
+              opacity: useTransform(
+                scrollYProgress,
+                [0.4167, 0.5, 0.6667, 0.75],
+                [0, 1, 1, 0]
+              ),
+              display: useTransform(scrollYProgress, (value) =>
+                value > 0.45 && value <= 0.8 ? "flex" : "none"
+              ),
+            }}
+          >
+            <motion.div
+              style={{
+                y: visionTVLeftSlideUpTransform,
+                x: visionTVLeftSlideLeftTransform,
+              }}
+              className="transform space-y-6 mt-40"
+            >
+              <h1 className="text-8xl font-extrabold">
+                <span className="text-secondary">VisionTV</span>
+                <br />
+              </h1>
+              <p className="text-2xl text-secondary font-normal">
+                OTT, OEMs,Fast Channels{" "}
+              </p>
+              <p className="text-2xl text-accent font-normal">
+                Unified CTV Plants{" "}
+              </p>
+              <Link
+                to={"/visiontv"}
+                className="inline-block bg-primary text-secondary border-accent border-solid border-2 font-bold font-sans rounded-full px-8 py-3"
               >
-                <p className="text-4xl text-accent font-bold">
-                  Mid Funnel = Consideration
+                Learn More
+              </Link>
+            </motion.div>
+            <motion.div
+              style={{
+                x: visionTVRightSlideRightTransform,
+              }}
+            >
+              <motion.div
+                style={{
+                  opacity: visionTVFadeTransform,
+                }}
+                className="w-xl h-[80%]"
+              >
+                <img src="/VisionTV.png" alt="visionTV" />
+              </motion.div>
+              <motion.div
+                style={{
+                  y: visionTVLeftSlideUpTransform,
+                }}
+                className="mt-6"
+              >
+                <p className="text-4xl text-accent font-bold bg-[linear-gradient(180deg, #FC213B 0%, #961423 100%)] text-center">
+                  Brand Stature{" "}
                 </p>
               </motion.div>
             </motion.div>
+          </motion.section>
+
+          {/* Section 4 - NativeHUB (0.75 to 1.0) */}
+          <motion.section
+            className="absolute top-0 left-0 right-0 flex justify-between flex-row-reverse py-16 bg-primary h-full"
+            style={{
+              opacity: useTransform(
+                scrollYProgress,
+                [0.6667, 0.75, 1.0],
+                [0, 1, 1]
+              ),
+              display: useTransform(scrollYProgress, (value) =>
+                value > 0.7 ? "flex" : "none"
+              ),
+            }}
+          >
             <motion.div
-              className="w-3/5"
-              initial="hidden"
-              animate={nativeHUBControls}
-              variants={textFromRightVariants}
+              style={{
+                opacity: nativeHubRightSlideUpTransform,
+              }}
+              className="transform space-y-6 mt-40"
             >
-              <motion.h2
-                variants={textItemVariants}
-                className="text-8xl font-bold text-secondary"
-              >
-                NativeHUB
-              </motion.h2>
-              <motion.p
-                variants={textItemVariants}
-                className="text-2xl text-secondary mt-6"
-              >
+              <h1 className="text-8xl font-extrabold">
+                <span className="text-secondary">NativeHUB</span>
+                <br />
+              </h1>
+              <p className="text-2xl text-secondary font-normal">
                 All native in one place Planning Execution
-              </motion.p>
-              <motion.p
-                variants={textItemVariants}
-                className="text-2xl text-accent"
-              >
+              </p>
+              <p className="text-2xl text-accent font-normal">
                 Unified Optimisation
-              </motion.p>
-              <motion.div variants={textItemVariants}>
-                <Link
-                  to="/nativehub"
-                  className="inline-block mt-6 bg-primary text-secondary border-accent border-solid border-2 font-bold rounded-full px-8 py-3"
-                >
-                  Learn More
-                </Link>
-              </motion.div>
+              </p>
+              <Link
+                to={"/nativehub"}
+                className="inline-block bg-primary text-secondary border-accent border-solid border-2 font-bold font-sans rounded-full px-8 py-3"
+              >
+                Learn More
+              </Link>
             </motion.div>
-          </div>
+            <motion.div
+              style={{
+                y: nativeHubLeftFadeTransform,
+              }}
+            >
+              <div className="w-lg scale-x-[-1] h-[80%]">
+                <img src="/NativeHUB.png" alt="NativeHUB" />
+              </div>
+              <div className="mt-6">
+                <p className="text-4xl text-accent font-bold bg-[linear-gradient(180deg, #FC213B 0%, #961423 100%)]">
+                  Mid Funnel = Consideration{" "}
+                </p>
+              </div>
+            </motion.div>
+          </motion.section>
         </div>
-      </section>
-    </div>
+        {/* Debug element to visualize scroll progress */}
+      </div>
+    </>
   );
 }
