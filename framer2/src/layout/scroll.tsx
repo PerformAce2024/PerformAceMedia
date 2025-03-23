@@ -2,7 +2,7 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useMemo, useRef } from "react";
 
 const ballsData = [
-  ["Age", "Sex", "Device", "Life event", "Behaviour", "MAP", "Economics"],
+  ["Age", "Geo", "Device", "Life event", "Behaviour", "MAP", "Economics"],
   ["Economics", "Travel", "D2C", "Gaming", "Vehicle", "Wealth"],
   ["Wealth", "Credit Score", "Marital Status", "Parenthood", "Experience"],
   ["Education", "Niche Behaviour", "Cross Device", "Manymore..."],
