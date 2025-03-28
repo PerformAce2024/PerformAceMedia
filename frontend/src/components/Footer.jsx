@@ -1,4 +1,3 @@
-
 const DigitalPresenceCTA = () => {
   return (
     <div className="w-full bg-white p-8">
@@ -10,7 +9,10 @@ const DigitalPresenceCTA = () => {
               Ready to Transform Your Digital Presence?
             </h2>
             <p className="text-gray-700">
-              Explore our services and discover how PerformAce can help you achieve your digital marketing goals. Contact us today to schedule a consultation and take the first step towards digital success with PerformAce.
+              Explore our services and discover how PerformAce can help you
+              achieve your digital marketing goals. Contact us today to schedule
+              a consultation and take the first step towards digital success
+              with PerformAce.
             </p>
           </div>
 
@@ -20,13 +22,7 @@ const DigitalPresenceCTA = () => {
               <h3 className="text-xl font-semibold mb-4">Contact</h3>
               <div className="space-y-2">
                 <div className="flex items-center">
-                  <span className="text-gray-700">+91 7404047474 (Sales)</span>
-                </div>
-                <div className="flex items-center">
-                  <span className="text-gray-700">+91 9958410026 (Support)</span>
-                </div>
-                <div className="flex items-center">
-                  <span className="text-gray-700">sales@performacemedia.com</span>
+                  <span className="text-gray-700">+91 99588 77224</span>
                 </div>
               </div>
             </div>
@@ -38,10 +34,26 @@ const DigitalPresenceCTA = () => {
               <div>
                 <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
                 <div className="space-y-2">
-                  <div><a href="#" className="text-gray-700 hover:text-gray-900">About Us</a></div>
-                  <div><a href="#" className="text-gray-700 hover:text-gray-900">Services</a></div>
-                  <div><a href="#" className="text-gray-700 hover:text-gray-900">Contact Us</a></div>
-                  <div><a href="#" className="text-gray-700 hover:text-gray-900">Portfolio</a></div>
+                  <div>
+                    <a href="#" className="text-gray-700 hover:text-gray-900">
+                      About Us
+                    </a>
+                  </div>
+                  <div>
+                    <a href="#" className="text-gray-700 hover:text-gray-900">
+                      Services
+                    </a>
+                  </div>
+                  <div>
+                    <a href="#" className="text-gray-700 hover:text-gray-900">
+                      Contact Us
+                    </a>
+                  </div>
+                  <div>
+                    <a href="#" className="text-gray-700 hover:text-gray-900">
+                      Portfolio
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
