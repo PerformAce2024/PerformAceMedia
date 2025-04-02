@@ -6,7 +6,7 @@ export default function HeroSection2() {
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
-    offset: ["start start", "end end"],
+    // offset: ["start start", "end end"],
   });
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export default function HeroSection2() {
       [0, 0.0833, 0.1667, 0.25],
       ["100vw", "0vw", "0vw", "100vw"]
     ),
-    { stiffness: 180, damping: 18, mass: 1.2 }
+    { stiffness: 120, damping: 18, mass: 1.2 }
   );
 
   // Section 2 - AudienceX (0.25 to 0.5)
@@ -114,14 +114,14 @@ export default function HeroSection2() {
       {/* Main container with 500vh height to allow scrolling */}
       <div
         ref={heroRef}
-        className="container mx-auto px-5 h-[500vh] w-full relative"
+        className="container mx-auto px-5 h-[700svh] w-full relative"
       >
         {/* Container that sticks to the top and holds all sections */}
         <div className="sticky top-0 w-full h-screen">
           {/* Create visibility transforms for each section */}
           {/* Section 1 - InsightX (0 to 0.25) */}
           <motion.section
-            className="absolute top-0 left-0 right-0 flex justify-between py-16 bg-primary h-full"
+            className="md:absolute top-0 left-0 right-0 flex-col-reverse py-2 md:flex md:justify-between md:py-16 bg-primary h-full"
             style={{
               opacity: useTransform(
                 scrollYProgress,
@@ -137,21 +137,21 @@ export default function HeroSection2() {
               style={{
                 x: insightXLeftTransform,
               }}
-              className="transform space-y-6 mt-40"
+              className="transform  md:space-y-6 mt-10 md:mt-40"
             >
-              <h1 className="text-8xl font-extrabold">
+              <h1 className=" text-2xl md:text-8xl font-extrabold">
                 <span className="text-secondary">InsightX</span>
                 <br />
               </h1>
-              <p className="text-2xl text-secondary font-normal">
+              <p className="text-xl md:text-2xl text-secondary font-normal">
                 Tech + Data + APIs
               </p>
-              <p className="text-2xl text-accent font-normal">
-                Deterministic Segmentation like never before
+              <p className="text-xl md:text-2xl text-accent font-normal">
+                Deterministic Segmentation
               </p>
               <Link
                 to={"/insightx"}
-                className="inline-block bg-primary text-secondary border-accent border-solid border-2 font-bold font-sans rounded-full px-8 py-3"
+                className="inline-block bg-primary text-secondary border-accent border-solid border-2 font-bold font-sans rounded-full px-4 py-2 md:px-8 md:py-3"
               >
                 Learn More
               </Link>
@@ -160,12 +160,13 @@ export default function HeroSection2() {
               style={{
                 x: insightXRightTransform,
               }}
+              className="flex flex-col items-center md:items-center"
             >
-              <div className="w-96 mt-40 mr-20">
+              <div className="w-3xs md:w-96 mt-40 md:mr-20">
                 <img src="/InsightX.png" alt="insightx" />
               </div>
-              <div className="mt-6">
-                <p className="text-4xl text-accent font-bold bg-[linear-gradient(180deg, #FC213B 0%, #961423 100%)]">
+              <div className="md:mt-6 md:text-left">
+                <p className=" text-lg text-secondary md:text-4xl md:text-accent font-bold bg-[linear-gradient(180deg, #FC213B 0%, #961423 100%)]">
                   Deterministic Segmentation
                 </p>
               </div>
@@ -174,7 +175,7 @@ export default function HeroSection2() {
 
           {/* Section 2 - AudienceX (0.25 to 0.5) */}
           <motion.section
-            className="absolute top-0 left-0 right-0 flex justify-between flex-row-reverse py-16 bg-primary h-full"
+            className="md:absolute top-0 flex-col left-0 right-0 md:justify-between md:flex-row-reverse md:py-16 bg-primary h-full"
             style={{
               opacity: useTransform(
                 scrollYProgress,
@@ -191,19 +192,21 @@ export default function HeroSection2() {
                 y: audienceXRightSlideTransform,
                 x: audienceXRightSlideRightTransform,
               }}
-              className="transform space-y-6 mt-40"
+              className="transform space-y-2 md:space-y-6 mt-40"
             >
-              <h1 className="text-8xl font-extrabold">
+              <h1 className="text-2xl md:text-8xl font-extrabold">
                 <span className="text-secondary">AudienceX</span>
                 <br />
               </h1>
-              <p className="text-2xl text-secondary font-normal">
+              <p className="text-xl md:text-2xl text-secondary font-normal">
                 Planning Execution RichMedia
               </p>
-              <p className="text-2xl text-accent font-normal">Brand Matrix </p>
+              <p className="text-xl md:text-2xl text-accent font-normal">
+                Brand Matrix{" "}
+              </p>
               <Link
                 to={"/audiencex"}
-                className="inline-block bg-primary text-secondary border-accent border-solid border-2 font-bold font-sans rounded-full px-8 py-3"
+                className="inline-block bg-primary text-secondary border-accent border-solid border-2 font-bold font-sans rounded-full px-4 py-2 md:px-8 md:py-3"
               >
                 Learn More
               </Link>
@@ -214,11 +217,11 @@ export default function HeroSection2() {
                 x: audienceXLeftSlideLeftTransform,
               }}
             >
-              <div className="w-2xl scale-x-[-1]">
+              <div className="w-3xs md:w-2xl scale-x-[-1]">
                 <img src="/audienceX.png" alt="audienceX" />
               </div>
               <div className="mt-6 text-left">
-                <p className="text-4xl text-accent font-bold bg-[linear-gradient(180deg, #FC213B 0%, #961423 100%)]">
+                <p className="text-lg md:text-4xl md:text-accent text-secondary font-bold bg-[linear-gradient(180deg, #FC213B 0%, #961423 100%)]">
                   Brand Matrix{" "}
                 </p>
               </div>
@@ -227,7 +230,7 @@ export default function HeroSection2() {
 
           {/* Section 3 - VisionTV (0.5 to 0.75) */}
           <motion.section
-            className="absolute top-0 left-0 right-0 flex justify-between py-16 bg-primary h-full"
+            className="top-0 left-0 right-0 py-2 md:py-16 bg-primary h-full"
             style={{
               opacity: useTransform(
                 scrollYProgress,
@@ -244,21 +247,21 @@ export default function HeroSection2() {
                 y: visionTVLeftSlideUpTransform,
                 x: visionTVLeftSlideLeftTransform,
               }}
-              className="transform space-y-6 mt-40"
+              className="transform space-y-2 md:space-y-6 mt-10 md:mt-40"
             >
-              <h1 className="text-8xl font-extrabold">
+              <h1 className="text-2xl md:text-8xl font-extrabold">
                 <span className="text-secondary">VisionTV</span>
                 <br />
               </h1>
-              <p className="text-2xl text-secondary font-normal">
-                OTT, OEMs,Fast Channels{" "}
+              <p className="text-xl md:text-2xl text-secondary font-normal">
+                OTT, OEMs,Fast Channels
               </p>
-              <p className="text-2xl text-accent font-normal">
+              <p className="text-xl md:text-2xl text-accent font-normal">
                 Unified CTV Plants{" "}
               </p>
               <Link
                 to={"/visiontv"}
-                className="inline-block bg-primary text-secondary border-accent border-solid border-2 font-bold font-sans rounded-full px-8 py-3"
+                className="inline-block bg-primary text-secondary border-accent border-solid border-2 font-bold font-sans rounded-full px-4 py-2 md:px-8 md:py-3"
               >
                 Learn More
               </Link>
@@ -272,7 +275,7 @@ export default function HeroSection2() {
                 style={{
                   opacity: visionTVFadeTransform,
                 }}
-                className="w-xl h-[80%]"
+                className="w-3xs md:w-2xl"
               >
                 <img src="/VisionTV.png" alt="visionTV" />
               </motion.div>
@@ -280,9 +283,9 @@ export default function HeroSection2() {
                 style={{
                   y: visionTVLeftSlideUpTransform,
                 }}
-                className="mt-6"
+                className="mt-2"
               >
-                <p className="text-4xl text-accent font-bold bg-[linear-gradient(180deg, #FC213B 0%, #961423 100%)] text-center">
+                <p className="text-lg md:text-4xl text-secondary md:text-accent font-bold bg-[linear-gradient(180deg, #FC213B 0%, #961423 100%)] text-center">
                   Brand Stature{" "}
                 </p>
               </motion.div>
@@ -291,7 +294,8 @@ export default function HeroSection2() {
 
           {/* Section 4 - NativeHUB (0.75 to 1.0) */}
           <motion.section
-            className="absolute top-0 left-0 right-0 flex justify-between flex-row-reverse py-16 bg-primary h-full"
+            className="md:absolute top-0 left-0 right-0 flex-col items-start
+              md:justify-between md:flex-row-reverse md:py-16 bg-primary h-full"
             style={{
               opacity: useTransform(
                 scrollYProgress,
@@ -307,21 +311,21 @@ export default function HeroSection2() {
               style={{
                 opacity: nativeHubRightSlideUpTransform,
               }}
-              className="transform space-y-6 mt-40"
+              className="transform space-y-2 md:space-y-6 mt-10 md:mt-40"
             >
-              <h1 className="text-8xl font-extrabold">
+              <h1 className="text-2xl md:text-8xl font-extrabold">
                 <span className="text-secondary">NativeHUB</span>
                 <br />
               </h1>
-              <p className="text-2xl text-secondary font-normal">
+              <p className="text-xl md:text-2xl text-secondary font-normal">
                 All native in one place Planning Execution
               </p>
-              <p className="text-2xl text-accent font-normal">
+              <p className="text-xl md:text-2xl text-accent font-normal">
                 Unified Optimisation
               </p>
               <Link
                 to={"/nativehub"}
-                className="inline-block bg-primary text-secondary border-accent border-solid border-2 font-bold font-sans rounded-full px-8 py-3"
+                className="inline-block bg-primary text-secondary border-accent border-solid border-2 font-bold font-sans rounded-full px-4 py-2 md:px-8 md:py-3"
               >
                 Learn More
               </Link>
@@ -331,11 +335,11 @@ export default function HeroSection2() {
                 y: nativeHubLeftFadeTransform,
               }}
             >
-              <div className="w-lg scale-x-[-1] h-[80%]">
+              <div className="md:w-xl w-3xs scale-x-[-1] md:h-[80%]">
                 <img src="/NativeHUB.png" alt="NativeHUB" />
               </div>
-              <div className="mt-6">
-                <p className="text-4xl text-accent font-bold bg-[linear-gradient(180deg, #FC213B 0%, #961423 100%)]">
+              <div className="mt-2 md:mt-6">
+                <p className="text-lg md:text-4xl text-secondary  md:text-accent font-bold bg-[linear-gradient(180deg, #FC213B 0%, #961423 100%)]">
                   Mid Funnel = Consideration{" "}
                 </p>
               </div>
