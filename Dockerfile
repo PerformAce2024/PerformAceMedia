@@ -23,14 +23,6 @@ COPY --from=build /app/frontend/dist /usr/share/nginx/html
 # Copy a custom nginx configuration
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 
-# Add a non-root user
-RUN adduser -D -u 1000 appuser && \
-    chown -R appuser:appuser /usr/share/nginx/html && \
-    chmod -R 755 /usr/share/nginx/html
-
-# Switch to non-root user for the Nginx process
-USER appuser
-
 # Expose port 80
 EXPOSE 80
 
