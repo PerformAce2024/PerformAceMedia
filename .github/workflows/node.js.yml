@@ -1,7 +1,7 @@
 name: Frontend Application
 
 on:
-  push: 
+  push:
     branches:
       - main
 
@@ -10,11 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
-        uses: actions/checkout@v4     
+        uses: actions/checkout@v4
       - name: Extract short commit SHA
         id: vars
-        run: echo "SHORT_SHA=${GITHUB_SHA::6}" >> $GITHUB_ENV        
-      - name: Build docker -t
+        run: echo "SHORT_SHA=${GITHUB_SHA::6}" >> $GITHUB_ENV
+      - name: Build docker image
         run: docker build -f Dockerfile -t 209479285380.dkr.ecr.ap-south-1.amazonaws.com/performacemedia:frontend-${{ env.SHORT_SHA }} .
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v2
@@ -25,17 +25,16 @@ jobs:
       - name: Log in to Amazon ECR
         run: |
           aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 209479285380.dkr.ecr.ap-south-1.amazonaws.com
-      - name: Publish image to docker hub
+      - name: Publish image to ECR
         run: docker push 209479285380.dkr.ecr.ap-south-1.amazonaws.com/performacemedia:frontend-${{ env.SHORT_SHA }}
 
-        
   deploy:
     needs: build
     runs-on: self-hosted
     steps:
       - name: Extract short commit SHA
         id: vars
-        run: echo "SHORT_SHA=${GITHUB_SHA::6}" >> $GITHUB_ENV     
+        run: echo "SHORT_SHA=${GITHUB_SHA::6}" >> $GITHUB_ENV
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
@@ -44,10 +43,10 @@ jobs:
           aws-region: ap-south-1
       - name: Log in to Amazon ECR
         run: |
-          aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 209479285380.dkr.ecr.ap-south-1.amazonaws.com          
+          aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 209479285380.dkr.ecr.ap-south-1.amazonaws.com
       - name: Pull Docker image
         run: docker pull 209479285380.dkr.ecr.ap-south-1.amazonaws.com/performacemedia:frontend-${{ env.SHORT_SHA }}
       - name: Delete old container
-        run: docker rm -f performacemedia     
+        run: docker rm -f performacemedia || true
       - name: Run docker container
-        run: docker run -d -p 5173:5173 --name performacemedia 209479285380.dkr.ecr.ap-south-1.amazonaws.com/performacemedia:frontend-${{ env.SHORT_SHA }}
+        run: docker run -d -p 80:80 --name performacemedia 209479285380.dkr.ecr.ap-south-1.amazonaws.com/performacemedia:frontend-${{ env.SHORT_SHA }}
