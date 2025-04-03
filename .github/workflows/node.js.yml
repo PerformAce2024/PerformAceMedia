@@ -49,4 +49,4 @@ jobs:
       - name: Delete old container
         run: docker rm -f performacemedia || true
       - name: Run docker container
-        run: docker run -d -p 80:80 --name performacemedia 209479285380.dkr.ecr.ap-south-1.amazonaws.com/performacemedia:frontend-${{ env.SHORT_SHA }}
+        run: docker run -d -p 5173:80 --name performacemedia 209479285380.dkr.ecr.ap-south-1.amazonaws.com/performacemedia:frontend-${{ env.SHORT_SHA }}
