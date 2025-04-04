@@ -314,7 +314,7 @@ export function Carousel() {
       {/* Call to action section */}
       <div className="flex flex-col items-center mt-8 md:mt-12 mb-4 md:mb-8 px-4 md:px-0 relative z-10">
         <div
-          className={`rounded-lg px-4 md:px-8 py-3 md:py-4 mb-4 md:mb-6 w-full max-w-md shadow-md transition-colors duration-500 ${
+          className={`rounded-md px-4 md:px-8 py-3 md:py-4 mb-4 md:mb-6 w-full max-w-md shadow-md transition-colors duration-500 ${
             textWhite ? "bg-red-900" : "bg-red-100"
           }`}
         >
@@ -327,13 +327,13 @@ export function Carousel() {
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row w-full max-w-md shadow-md rounded-full overflow-hidden">
+        <div className="flex md:w-3xl shadow-md rounded-md overflow-hidden">
           <input
             type="tel"
             placeholder="Enter your number"
-            className="w-full bg-black px-4 py-3 sm:py-0 text-white outline-none"
+            className="w-full bg-black md:px-4 md:py-2 px-2 py-1 text-white outline-none text-sm md:text-xl"
           />
-          <button className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 sm:px-10 sm:py-4 font-medium transition-colors whitespace-nowrap">
+          <button className="bg-red-500 hover:bg-red-600 text-white md:px-6 md:py-3 px-2 py-1 md:font-medium text-sm md:text-xl transition-colors whitespace-nowrap">
             Get Started Today
           </button>
         </div>
