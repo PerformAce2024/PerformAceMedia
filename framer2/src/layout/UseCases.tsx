@@ -1,5 +1,4 @@
 const UseCasesLayout = () => {
-  // Sample case study data
   const caseStudies = [
     {
       id: 1,
@@ -9,15 +8,17 @@ const UseCasesLayout = () => {
         "Build brand awareness around colleges and universities for a student campaign",
       details:
         "Targeted top 1000 colleges and universities ranked on National Institutional Ranking Framework by ministry of education Latitude and longitude. Adopted the existing Standard banners into rich media innovations.",
-      image: "/Object7.jpg", // Replace with your actual image path
+      image: "/Object7.jpg",
     },
     {
       id: 2,
-      category: "Electronic consumer goods",
-      title: "",
-      description: "",
-      details: "",
-      image: "/Object6.jpg", // Replace with your actual image path
+      category: "Electronic Consumer Goods",
+      title: "Increased Sales by 20% Through Digital Ads",
+      description:
+        "Implemented a targeted digital marketing strategy to drive sales and brand visibility.",
+      details:
+        "Optimized product listings and ad placements across multiple e-commerce platforms. Leveraged AI-driven analytics to identify high-converting customer segments and refine ad targeting.",
+      image: "/Object6.jpg",
     },
   ];
 

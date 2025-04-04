@@ -6,7 +6,7 @@ import HeroSection2 from "@/layout/Hero2";
 export default function Home() {
   return (
     <>
-      <main className="sticky top-0 w-full  bg-black text-white ">
+      <main className="sticky top-0 w-full bg-black text-white ">
         <section className="relative">
           <Hero />
         </section>

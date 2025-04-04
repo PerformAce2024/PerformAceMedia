@@ -19,11 +19,11 @@ export default function ScrollAnimation() {
 
   const { scrollYProgress: containerScrollProgress } = useScroll({
     target: containerRef,
-    offset: ["start", "end"],
+    offset: ["start end", "end"],
   });
 
   const scrollYProgress = useSpring(containerScrollProgress, {
-    stiffness: 30,
+    stiffness: 170,
     damping: 20,
   });
 
@@ -93,7 +93,7 @@ export default function ScrollAnimation() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full bg-gray-900 flex justify-center items-center"
+      className="relative w-full bg-primary flex justify-center items-center"
     >
       <svg className="w-full h-full" viewBox="0 0 600 325">
         <defs>

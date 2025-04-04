@@ -1,4 +1,6 @@
 import Footer from "@/layout/Footer";
+import Insightxscroll from "@/layout/Insightxscroll";
+
 import ScrollAnimation from "@/layout/scroll";
 
 export default function InsightX() {
@@ -29,6 +31,7 @@ export default function InsightX() {
           </div>
         </div>
         <ScrollAnimation />
+        <Insightxscroll />
         <Footer />
       </main>
     </>

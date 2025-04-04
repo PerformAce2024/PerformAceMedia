@@ -13,23 +13,26 @@ export const CardSecond = ({
 }: Card) => {
   return (
     <div
-      className="bg-black shadow-lg rounded-lg p-6 flex flex-col items-start w-[331px] h-[309px]"
+      className="bg-black shadow-lg rounded-lg p-4 sm:p-6 flex flex-col items-start w-full h-full min-h-[280px] sm:min-h-[309px]"
       style={{ borderRadius: "8px" }}
     >
       {/* Icon */}
       <img
         src={imageSrc}
         alt={title}
-        className="w-10 h-10 object-contain mb-0 mt-8"
+        className="w-8 h-8 sm:w-10 sm:h-10 object-contain mb-0 mt-4 sm:mt-8"
       />
 
       {/* Title */}
-      <h3 className="text-xl font-bold mt-4 mb-2" style={{ color: titleColor }}>
+      <h3
+        className="text-lg sm:text-xl font-bold mt-3 sm:mt-4 mb-2"
+        style={{ color: titleColor }}
+      >
         {title}
       </h3>
 
       {/* Description */}
-      <p className="text-white text-[1rem] leading-tight">
+      <p className="text-white text-sm sm:text-base leading-tight">
         {description.split(" ").map((word, index) => {
           if (
             title === "Expertise" &&

@@ -74,7 +74,7 @@ export default function AudienceX() {
           </div>
 
           <div className="">
-            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-center">
+            <h2 className="text-2xl  md:text-7xl lg:text-8xl font-bold text-center">
               AudienceX
             </h2>
             <p className="text-sm md:text-base text-center mt-2">
@@ -96,7 +96,7 @@ export default function AudienceX() {
           </p>
         </div>
       </div>
-      <div className="relative mt-24   flex justify-center bg-primary">
+      <div className="relative mt-10 md:mt-24 flex justify-center bg-primary">
         <div className="w-full max-w-md">
           <AnimatePresence mode="wait">
             {/* Only show the current card */}

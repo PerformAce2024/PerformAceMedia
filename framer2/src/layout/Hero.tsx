@@ -21,17 +21,17 @@ export default function HeroSection() {
     <>
       <div
         ref={heroRef}
-        className="container mx-auto px-4 py-10 flex flex-col items-center justify-center h-screen relative"
+        className="container mx-auto py-2 px-4 md:py-10 flex flex-col items-center justify-center h-screen relative"
       >
         <motion.div
           className="md:w-1/2 space-y-6 m-auto text-center z-10"
           style={{ opacity: textOpacity }}
         >
-          <h1 className="text-7xl font-extrabold">
+          <h1 className=" text-4xl md:text-7xl font-extrabold">
             <span className="text-accent">Build</span>
             <br />
             <WordRotate
-              className="text-7xl"
+              className="text-xl md:text-7xl"
               words={["Brand", "Consideration", "Engagement", "Growth"]}
             />
           </h1>
