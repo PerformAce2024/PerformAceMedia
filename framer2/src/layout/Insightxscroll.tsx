@@ -255,7 +255,7 @@
 
 // export default Insightxscroll;
 
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
 import CardInsightX from "@/components/custom/CardInsightX";
 

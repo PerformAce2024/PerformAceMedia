@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { CardSecond } from "./Card2";
+import React from "react";
 
 export function Carousel() {
   const cards = [
@@ -49,12 +50,12 @@ export function Carousel() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [maxScrollIndex, setMaxScrollIndex] = useState(0);
-  const [visibleCards, setVisibleCards] = useState(1);
+  const [, setVisibleCards] = useState(1); // Kept for future use
   const [cardWidth, setCardWidth] = useState(300);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
   const carouselRef = useRef(null);
-  const sectionRef = useRef(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   // Animation states
   const [ballSize, setBallSize] = useState(0);
@@ -99,10 +100,11 @@ export function Carousel() {
 
     // Add scroll event listener to track scroll position
     const handleScroll = () => {
-      if (!sectionRef.current) return;
+      const sectionElement = sectionRef.current;
+      if (!sectionElement) return;
 
       // Get the section's position relative to the viewport
-      const rect = sectionRef.current.getBoundingClientRect();
+      const rect = sectionElement.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
       // Calculate how far the section is from entering the viewport
@@ -120,12 +122,12 @@ export function Carousel() {
         scrollProgress = Math.min(1, 1 - rect.top / windowHeight);
 
         // Scale the circle size based on scroll progress
-        const maxSize = Math.max(window.innerWidth, window.innerHeight) * 2;
+        const maxSize = Math.max(window.innerWidth, window.innerHeight) * 3;
         const newSize = scrollProgress * maxSize;
         setBallSize(newSize);
 
         // Toggle text color when ball gets large enough
-        setTextWhite(scrollProgress > 0.5);
+        setTextWhite(scrollProgress > 0.3);
       }
     };
 
@@ -150,11 +152,11 @@ export function Carousel() {
   };
 
   // Touch handlers for swipe functionality
-  const handleTouchStart = (e) => {
+  const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStart(e.targetTouches[0].clientX);
   };
 
-  const handleTouchMove = (e) => {
+  const handleTouchMove = (e: React.TouchEvent) => {
     setTouchEnd(e.targetTouches[0].clientX);
   };
 
