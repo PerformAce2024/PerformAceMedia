@@ -121,7 +121,7 @@ export default function HeroSection2() {
           {/* Create visibility transforms for each section */}
           {/* Section 1 - InsightX (0 to 0.25) */}
           <motion.section
-            className="absolute top-0 left-0 right-0 overflow-hidden flex flex-col-reverse md:flex-row md:justify-between md:py-16 bg-primary h-full"
+            className="absolute top-0 left-0 right-0 overflow-hidden flex flex-col-reverse md:flex-row md:justify-between md:py-16 bg-primary md:h-full"
             style={{
               opacity: useTransform(
                 scrollYProgress,
