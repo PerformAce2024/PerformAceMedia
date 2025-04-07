@@ -9,11 +9,11 @@ import Navbar from "./layout/Navbar";
 
 function App() {
   const routes = [
-    { name: "AudienceX", path: "/audienceX" },
-    { name: "PA AdVance", path: "/paadvance" },
-    { name: "VisionTV", path: "/visiontv" },
-    { name: "NativeHUB", path: "/nativehub" },
     { name: "InsightX", path: "/insightx" },
+    { name: "VisionTV", path: "/visiontv" },
+    { name: "AudienceX", path: "/audienceX" },
+    { name: "NativeHub", path: "/nativehub" },
+    { name: "AdVance", path: "/paadvance" },
     { name: "Partners", path: "/partners" },
   ];
 
