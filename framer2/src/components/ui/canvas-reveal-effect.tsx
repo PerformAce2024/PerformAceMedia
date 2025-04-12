@@ -192,7 +192,8 @@ const ShaderMaterial = ({
   uniforms: Uniforms;
 }) => {
   const { size } = useThree();
-  const ref = useRef<THREE.Mesh>();
+  const ref = useRef<THREE.Mesh | null>(null);
+
   let lastFrameTime = 0;
 
   useFrame(({ clock }) => {
@@ -202,7 +203,6 @@ const ShaderMaterial = ({
       return;
     }
     lastFrameTime = timestamp;
-
     const material: any = ref.current.material;
     const timeLocation = material.uniforms.u_time;
     timeLocation.value = timestamp;
