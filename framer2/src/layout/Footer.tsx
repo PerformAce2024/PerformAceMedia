@@ -1,4 +1,16 @@
-export default function Footer() {
+import ContactModal from "@/components/custom/ContactModal";
+import React, { useState } from "react";
+
+interface FooterProps {
+  apiUrl?: string; // Optional API URL to pass to the ContactModal
+}
+
+const Footer: React.FC<FooterProps> = ({ apiUrl }) => {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const openModal = (): void => setIsModalOpen(true);
+  const closeModal = (): void => setIsModalOpen(false);
+
   return (
     <footer className="bg-secondary text-primary py-10">
       <div className="container mx-auto px-6">
@@ -37,7 +49,15 @@ export default function Footer() {
                 <a href="#">Services</a>
               </li>
               <li className="font-normal hover:text-accent transition-colors">
-                <a href="#">Contact Us</a>
+                <a
+                  href="#"
+                  onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                    e.preventDefault();
+                    openModal();
+                  }}
+                >
+                  Contact Us
+                </a>
               </li>
               <li className="font-normal hover:text-accent transition-colors">
                 <a href="#">Portfolio</a>
@@ -53,6 +73,11 @@ export default function Footer() {
           </p>
         </div>
       </div>
+
+      {/* Contact Modal */}
+      <ContactModal isOpen={isModalOpen} onClose={closeModal} apiUrl={apiUrl} />
     </footer>
   );
-}
+};
+
+export default Footer;

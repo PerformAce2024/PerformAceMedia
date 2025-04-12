@@ -10,7 +10,7 @@ interface CardProps {
 export function Card({ title, image, index }: CardProps) {
   return (
     <motion.div
-      className="relative p-6 text-secondary w-full h-full"
+      className="relative p-6 text-secondary w-full max-w-md mx-auto"
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 1.1 }}

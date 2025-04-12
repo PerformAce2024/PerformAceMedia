@@ -6,6 +6,8 @@ import InsightX from "./pages/InsightX";
 
 import AudienceX from "./pages/AudienceX";
 import Navbar from "./layout/Navbar";
+import VisionTV from "./pages/VisionTV";
+import NativeHub from "./pages/NativeHub";
 
 function App() {
   const routes = [
@@ -36,8 +38,8 @@ function App() {
 
           {/* Disabled routes - redirect to ComingSoon */}
           <Route path="/paadvance" element={<ComingSoon />} />
-          <Route path="/visiontv" element={<ComingSoon />} />
-          <Route path="/nativehub" element={<ComingSoon />} />
+          <Route path="/visiontv" element={<VisionTV />} />
+          <Route path="/nativehub" element={<NativeHub />} />
           <Route path="/partners" element={<ComingSoon />} />
 
           {/* Catch-all route */}

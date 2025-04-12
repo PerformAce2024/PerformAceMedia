@@ -1,35 +1,12 @@
-const GradientCards = () => {
-  // Sample card data - this can be replaced with your actual data
-  const cardData = [
-    {
-      title: "Precise targeting",
-      description: "Identify ideal customer segments with data-driven insights",
-      path: "/Object1.svg",
-    },
-    {
-      title: "Media landscape optimisation",
-      description:
-        "Strategic placement across digital and traditional channels",
-      path: "/Object2.svg",
-    },
-    {
-      title: "Better brand recall through creative innovations",
-      description: "Memorable campaigns that resonate with your audience",
-      path: "/Object3.svg",
-    },
-    {
-      title: "Focused towards brand goals",
-      description: "Align marketing efforts with core business objectives",
-      path: "/Object4.svg",
-    },
-    {
-      title: "Optimize ROI: pinpoint audience, choose media, refine bids",
-      description:
-        "Maximize return on marketing investment with strategic allocation",
-      path: "/Object5.svg",
-    },
-  ];
-
+type Card = {
+  title: string;
+  description: string;
+  path: string;
+};
+interface GradientCardsProps {
+  cardData: Card[];
+}
+const GradientCards: React.FC<GradientCardsProps> = ({ cardData }) => {
   const customGradientStyle = {
     background:
       "linear-gradient(180deg, #443E3E 0%, #090000 45.77%, #090000 97.18%)",
@@ -38,7 +15,7 @@ const GradientCards = () => {
   return (
     <div className="w-full bg-primary p-6 ">
       <div className="flex overflow-x-auto gap-4 pb-4 overflow-y-hidden">
-        {cardData.map((card, index) => (
+        {cardData.map((card: Card, index: number) => (
           <div
             key={index}
             className="min-w-64 h-80 rounded-lg p-6 flex flex-col justify-between"

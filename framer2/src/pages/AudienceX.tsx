@@ -6,6 +6,35 @@ import { AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 
 export default function AudienceX() {
+  const cardData = [
+    {
+      title: "Precise targeting",
+      description: "Identify ideal customer segments with data-driven insights",
+      path: "/Object1.svg",
+    },
+    {
+      title: "Media landscape optimisation",
+      description:
+        "Strategic placement across digital and traditional channels",
+      path: "/Object2.svg",
+    },
+    {
+      title: "Better brand recall through creative innovations",
+      description: "Memorable campaigns that resonate with your audience",
+      path: "/Object3.svg",
+    },
+    {
+      title: "Focused towards brand goals",
+      description: "Align marketing efforts with core business objectives",
+      path: "/Object4.svg",
+    },
+    {
+      title: "Optimize ROI: pinpoint audience, choose media, refine bids",
+      description:
+        "Maximize return on marketing investment with strategic allocation",
+      path: "/Object5.svg",
+    },
+  ];
   const cardsData = [
     {
       title: "InsightX Audience Segmentation",
@@ -107,7 +136,7 @@ export default function AudienceX() {
           </AnimatePresence>
         </div>
       </div>
-      <GradientCards />
+      <GradientCards cardData={cardData} />
       <UseCasesLayout />
       <Footer />
     </main>
