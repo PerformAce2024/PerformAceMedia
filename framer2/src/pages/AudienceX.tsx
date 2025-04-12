@@ -6,6 +6,12 @@ import { AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 
 export default function AudienceX() {
+  const caseStudies = [
+    {
+      id: 1,
+      image: "/usecase5.png",
+    },
+  ];
   const cardData = [
     {
       title: "Precise targeting",
@@ -137,7 +143,7 @@ export default function AudienceX() {
         </div>
       </div>
       <GradientCards cardData={cardData} />
-      <UseCasesLayout />
+      <UseCasesLayout caseStudies={caseStudies} />
       <Footer />
     </main>
   );

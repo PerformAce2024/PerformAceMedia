@@ -2,9 +2,18 @@ import GradientCards from "@/components/custom/Gradient";
 import { CardSpotlight } from "@/components/ui/card-spotlight";
 import Footer from "@/layout/Footer";
 import UseCasesLayout from "@/layout/UseCases";
-import { useEffect, useState } from "react";
 
 export default function VisionTV() {
+  const caseStudies = [
+    {
+      id: 1,
+      image: "/usecase3.png",
+    },
+    {
+      id: 2,
+      image: "/usecase4.png",
+    },
+  ];
   const cardData = [
     {
       title: "Precise targeting",
@@ -34,59 +43,18 @@ export default function VisionTV() {
       path: "/Object5.svg",
     },
   ];
-  const cardsData = [
-    {
-      title: "InsightX Audience Segmentation",
-      image: "/insightx1.png",
-      index: 1,
-    },
-    {
-      title: "Right media placement selection",
-      image: "/insightx2.png",
-      index: 2,
-    },
-    {
-      title: "Creative adaption into innovation",
-      image: "/insightx3.png",
-      index: 3,
-    },
-    {
-      title: "Build Reach  & Frequency among Audience",
-      image: "/insightx4.png",
-      index: 4,
-    },
-    {
-      title: "Optimise & win big auction ",
-      image: "/insightx5.png",
-      index: 5,
-    },
-    {
-      title: "Drive Brand Matrix",
-      image: "/insightx6.png",
-      index: 6,
-    },
-    {
-      title: "Third Party Lift Studies",
-      image: "/insightx7.png",
-      index: 7,
-    },
-  ];
-  const [, setCurrentCardIndex] = useState(0);
   const steps = [
-    { number: "01", text: "Target by household, device type, and geography" },
-    { number: "02", text: "Target by household, device type, and geography" },
-    { number: "03", text: "Target by household, device type, and geography" },
-    { number: "04", text: "Target by household, device type, and geography" },
+    { number: "01", text: "Target by shousehold, device type, and geography" },
+    { number: "02", text: "Sync messaging across CTV, mobile, and tablet" },
+    {
+      number: "03",
+      text: "Optimize campaigns using programmatic buying and real-time reporting",
+    },
+    {
+      number: "04",
+      text: "Analyze performance with deep, cross-device insights",
+    },
   ];
-  // Set up timer to cycle through cards
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentCardIndex((prevIndex) => (prevIndex + 1) % cardsData.length);
-    }, 3000); // Change card every 3 seconds
-
-    return () => clearInterval(interval); // Clean up on unmount
-  }, [cardsData.length]);
-
   return (
     <main className="bg-primary text-white w-full overflow-hidden">
       {/* Hero Section */}
@@ -119,42 +87,40 @@ export default function VisionTV() {
         </div>
       </section>
 
-      {/* Cards Section - Now properly positioned */}
-      {/* <section className="relative w-full py-16 bg-primary">
-        <div className="container mx-auto px-4">
-          <AnimatePresence mode="wait">
-            <Card
-              key={cardsData[currentCardIndex].index}
-              {...cardsData[currentCardIndex]}
-            />
-          </AnimatePresence>
-        </div>
-      </section> */}
       <CardSpotlight color="#ef4444">
-        <div className="bg-black text-white p-8 max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold mb-10">
+        <div className="bg-black text-white p-4 sm:p-6 md:p-8 max-w-3xl mx-auto">
+          <h2 className="text-6xl sm:text-3xl font-bold mb-6 sm:mb-10">
             How VisionTV <br></br> Works
           </h2>
 
-          <div className="flex flex-col items-center gap-8">
-            {steps.map((step) => (
-              <div key={step.number} className="flex items-center gap-6">
-                <div className="text-6xl font-bold text-gray-800 leading-none min-w-16">
-                  {step.number}
+          <div className="flex flex-col items-start gap-6 sm:gap-8">
+            {steps.map((step) => {
+              // Split the text by space to get the first word
+              const words = step.text.split(" ");
+              const firstWord = words[0];
+              const restOfText = words.slice(1).join(" ");
+
+              return (
+                <div key={step.number} className="flex items-center w-full">
+                  <div className="text-6xl sm:text-8xl md:text-9xl lg:text-[200px] font-bold text-gray-800 leading-none mr-4 sm:mr-6 md:mr-8 lg:mr-10 xl:mr-12">
+                    {step.number}
+                  </div>
+                  <div className="pt-2 flex-1">
+                    <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
+                      <span className="text-red-600 font-bold">
+                        {firstWord}
+                      </span>
+                      {" " + restOfText}
+                    </p>
+                  </div>
                 </div>
-                <div className="pt-2">
-                  <p className="text-lg">
-                    <span className="text-red-600 font-bold">Target</span>
-                    {" " + step.text.substring(6)}
-                  </p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </CardSpotlight>
       <GradientCards cardData={cardData} />
-      <UseCasesLayout />
+      <UseCasesLayout caseStudies={caseStudies} />
       <Footer />
     </main>
   );
