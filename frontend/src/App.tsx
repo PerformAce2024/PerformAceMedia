@@ -8,6 +8,7 @@ import AudienceX from "./pages/AudienceX";
 import Navbar from "./layout/Navbar";
 import VisionTV from "./pages/VisionTV";
 import NativeHub from "./pages/NativeHub";
+import ScrollToTop from "./components/custom/ScrolltoTop";
 
 function App() {
   const routes = [
@@ -30,6 +31,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <ScrollToTop />
         <Navbar routes={routes} />
         <Routes>
           <Route path="/" element={<Home />} />
