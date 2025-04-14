@@ -22,7 +22,7 @@ interface SubmitStatus {
 const ContactModal: React.FC<ContactModalProps> = ({
   isOpen,
   onClose,
-  apiUrl = "http://localhost:8000/api/contact-us",
+  apiUrl = "https://backend-api.performacemedia.com:8000/api/contact-us",
 }) => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
