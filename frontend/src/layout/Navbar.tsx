@@ -58,7 +58,6 @@ export default function Navbar({ routes }: NavbarProps) {
               className="h-10 md:h-20 w-auto"
             ></img>
           </Link>
-
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8 lg:space-x-12">
             {routes.map((route, index) => (
@@ -83,7 +82,6 @@ export default function Navbar({ routes }: NavbarProps) {
               </div>
             ))}
           </div>
-
           {/* Mobile menu button */}
           <button
             className="md:hidden z-30 relative"
