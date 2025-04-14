@@ -19,7 +19,7 @@ const UseCasesLayout = ({ caseStudies }: UseCasesLayoutProps) => {
       <h2 className="text-4xl font-bold text-center mb-12">Use cases</h2>
 
       {/* Case studies grid */}
-      <div className="flex justify-evenly">
+      <div className="flex  justify-center gap-4">
         {caseStudies.map((caseStudy) => (
           <div key={caseStudy.id} className="relative">
             {/* Category heading */}
@@ -27,7 +27,7 @@ const UseCasesLayout = ({ caseStudies }: UseCasesLayoutProps) => {
             {/* Smaller description below category */}
 
             {/* Main image container - fixed height, vertical format */}
-            <div className="relative rounded-lg overflow-hidden h-80 bg-black">
+            <div className="relative rounded-lg overflow-hidden h-6xl bg-black ">
               <img
                 src={caseStudy.image}
                 className="w-full h-full object-contain"

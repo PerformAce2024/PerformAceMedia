@@ -55,7 +55,7 @@ export default function Navbar({ routes }: NavbarProps) {
             <img
               src="/logo.png"
               alt="logo"
-              className="h-10 md:h-20 w-auto"
+              className="h-20 md:h-20 w-auto"
             ></img>
           </Link>
           {/* Desktop Navigation */}

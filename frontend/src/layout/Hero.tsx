@@ -40,7 +40,7 @@ export default function HeroSection() {
           </p>
           <Link
             to={"/partners"}
-            className="inline-block bg-accent text-primary font-bold font-sans rounded-full px-8 py-3"
+            className="inline-block bg-accent text-primary font-bold font-sans rounded-full px-8 py-5"
           >
             Slide into our Inbox
           </Link>

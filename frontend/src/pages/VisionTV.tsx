@@ -16,31 +16,24 @@ export default function VisionTV() {
   ];
   const cardData = [
     {
-      title: "Precise targeting",
-      description: "Identify ideal customer segments with data-driven insights",
-      path: "/Group.svg",
+      title: "Household-Sync Targeting",
+      path: "/Object1.svg",
     },
     {
-      title: "Media landscape optimisation",
-      description:
-        "Strategic placement across digital and traditional channels",
-      path: "/visiontv-2.svg",
+      title: "Prime Audience Premium screen",
+      path: "/visionttv2.svg",
     },
     {
-      title: "Better brand recall through creative innovations",
-      description: "Memorable campaigns that resonate with your audience",
-      path: "/visiontv-3.svg",
+      title: "Hyper-Targeted Geofencing",
+      path: "/NativeHub2.svg",
     },
     {
-      title: "Focused towards brand goals",
-      description: "Align marketing efforts with core business objectives",
-      path: "/Object4.svg",
+      title: "Multiscreen Campaign Synergy",
+      path: "/NativeHub3.svg",
     },
     {
-      title: "Optimize ROI: pinpoint audience, choose media, refine bids",
-      description:
-        "Maximize return on marketing investment with strategic allocation",
-      path: "/Object5.svg",
+      title: "Performace and optimisation",
+      path: "/visiontv6.svg",
     },
   ];
   const steps = [

@@ -6,31 +6,28 @@ import UseCasesLayout from "@/layout/UseCases";
 export default function NativeHub() {
   const cardData = [
     {
-      title: "Enhanced Click-to-Session Rates",
-      description: "Identify ideal customer segments with data-driven insights",
-      path: "/Object1.svg",
+      title: "Unified Native Advertising",
+      path: "/NativeHub1.svg",
     },
     {
       title: "Reduced Duplication, Increased Efficiency",
-      description:
-        "Strategic placement across digital and traditional channels",
-      path: "/Object2.svg",
+      path: "/NativeHub6.svg",
     },
     {
-      title: " Interest and Behavioural Targeting",
-      description: "Memorable campaigns that resonate with your audience",
-      path: "/Object3.svg",
+      title: "Interest and Behavioural Targeting",
+      path: "/NativeHub2.svg",
     },
     {
       title: "Cost-Effective Campaigns",
-      description: "Align marketing efforts with core business objectives",
-      path: "/Object4.svg",
+      path: "/NativeHub3.svg",
     },
     {
       title: "Creative Flexibility",
-      description:
-        "Maximize return on marketing investment with strategic allocation",
-      path: "/Object5.svg",
+      path: "/NativeHub4.svg",
+    },
+    {
+      title: "Smart Optimisation and real time data",
+      path: "NativeHub5.svg",
     },
   ];
 
@@ -63,18 +60,18 @@ export default function NativeHub() {
         {/* Image as background with absolute positioning */}
         <div className="absolute inset-0 w-full h-full">
           <img
-            src="NativeHubCover.svg"
+            src="NativeHubCover1.svg"
             alt="NativeHub"
             className="w-full h-full object-cover"
           />
         </div>
 
         {/* Text content positioned over the image */}
-        <div className="relative z-10 w-full h-full flex flex-col justify-center px-6 sm:px-12 py-72">
-          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-extrabold text-white mb-4 sm:mb-6">
+        <div className="relative z-10 w-full h-full flex flex-col items-center px-6 sm:px-12 py-50">
+          <h1 className="text-5xl sm:text-6xl lg:text-9xl font-bold text-white mb-4 sm:mb-6">
             NativeHub
           </h1>
-          <p className="text-lg sm:text-xl lg:text-2xl text-white font-normal max-w-xl">
+          <p className="text-lg sm:text-xl text-center lg:text-2xl text-white font-normal max-w-xl">
             Deliver high-value clicks and conversions through seamless,
             intelligent native advertising.
           </p>
