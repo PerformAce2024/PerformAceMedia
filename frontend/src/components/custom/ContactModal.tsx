@@ -50,7 +50,8 @@ const ContactModal: React.FC<ContactModalProps> = ({
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
-
+    console.log("Submitting form data:", formData);
+    console.log("Sending to URL:", apiUrl);
     try {
       const response = await fetch(apiUrl, {
         method: "POST",
