@@ -11,6 +11,7 @@ interface FormData {
   email: string;
   company: string;
   description: string;
+  mobile: string;
 }
 
 interface SubmitStatus {
@@ -21,13 +22,14 @@ interface SubmitStatus {
 const ContactModal: React.FC<ContactModalProps> = ({
   isOpen,
   onClose,
-  apiUrl = "http://localhost:5000/api/contact", // Default API URL
+  apiUrl = "http://localhost:8000/api/contact-us",
 }) => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     company: "",
     description: "",
+    mobile: "",
   });
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus | null>(null);
@@ -71,6 +73,7 @@ const ContactModal: React.FC<ContactModalProps> = ({
           email: "",
           company: "",
           description: "",
+          mobile: "",
         });
         // Close modal after 3 seconds
         setTimeout(() => {
@@ -192,7 +195,23 @@ const ContactModal: React.FC<ContactModalProps> = ({
               className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
             />
           </div>
-
+          <div className="mb-4">
+            <label
+              htmlFor="mobile"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
+              Phone Number *
+            </label>
+            <input
+              type="tel"
+              id="mobile"
+              name="mobile"
+              value={formData.mobile}
+              onChange={handleChange}
+              required
+              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
+            />
+          </div>
           <div className="mb-6">
             <label
               htmlFor="description"
