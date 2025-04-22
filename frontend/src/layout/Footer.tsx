@@ -1,5 +1,6 @@
 import ContactModal from "@/components/custom/ContactModal";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 interface FooterProps {
   apiUrl?: string; // Optional API URL to pass to the ContactModal
@@ -61,6 +62,9 @@ const Footer: React.FC<FooterProps> = ({ apiUrl }) => {
               </li>
               <li className="font-normal hover:text-accent transition-colors">
                 <a href="#">Portfolio</a>
+              </li>
+              <li className="font-normal hover:text-accent transition-colors">
+                <Link to="/privacy-policy">Privacy Policy</Link>
               </li>
             </ul>
           </div>
