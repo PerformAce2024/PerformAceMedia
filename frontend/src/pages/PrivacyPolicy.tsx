@@ -79,10 +79,10 @@ const PrivacyPolicy: React.FC = () => {
             correct, delete, restrict, or object to data processing. Contact us
             at{" "}
             <a
-              href="mailto:dpo@performacemedia.com"
+              href="mailto:privacy@performacemedia.com"
               className="underline text-blue-400"
             >
-              dpo@performacemedia.com
+              privacy@performacemedia.com
             </a>
             .
           </p>
@@ -118,10 +118,10 @@ const PrivacyPolicy: React.FC = () => {
             If you have any questions, reach out to our Data Protection Officer
             at{" "}
             <a
-              href="mailto:dpo@performacemedia.com"
+              href="mailto:privacy@performacemedia.com"
               className="underline text-blue-400"
             >
-              dpo@performacemedia.com
+              privacy@performacemedia.com
             </a>
             .
           </p>
