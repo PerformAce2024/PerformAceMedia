@@ -9,7 +9,7 @@ interface LayoutWrapperProps {
 
 const LayoutWrapper: React.FC<LayoutWrapperProps> = ({ children, routes }) => {
   const location = useLocation();
-  const hideNavbarRoutes = ["/privacy-policy"];
+  const hideNavbarRoutes = ["/privacy-policy", "/creatives"];
   const shouldHideNavbar = hideNavbarRoutes.includes(location.pathname);
 
   return (
